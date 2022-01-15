@@ -1,0 +1,44 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="py-5" style="background-image: url(&quot;https://static.pingendo.com/cover-stripes.svg&quot;); background-position: right bottom; background-size: cover;" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1>See where our Partners are located:</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <iframe src="https://www.google.com/maps/d/embed?mid=1qxAWDS89_I6caYTmS8_1TfVRqX5powPF&ehbc=2E312F" width="640" height="480"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5" style="">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1>Partners &amp; Cooperations</h1>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+
+        {% for partner in partner_list %}
+        <div class="col-lg-4 col-md-3 p-4" style="">
+          <div class="row">
+            <div class="col-3 p-0 d-flex align-items-center col-md-6"> <img class="img-fluid d-block" src="{{ partner.image.url }}"> </div>
+            <div class="col-9 col-md-6">
+              <p class="lead mb-0 text-center"> <b class="text-center">{{ partner.name }}</b><br></p>
+              <p class="mb-0 text-uppercase text-primary text-center"> {{ partner.type }}</p>
+              <p class="mb-0 text-center">{{ partner.city }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

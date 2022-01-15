@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--  TEST -->
+<title>{% block title %}{{ settings.APP_NAME }}{% endblock %}</title>
+
+{% include './base_header.html' %}
+
+</head>
+<body>
+{% include './base_navbar.html' %}
+{% block messages %}
+    {% if messages %}
+    {% for msg in messages %}
+        <div class="alert alert-{{msg.level_tag}}" role="alert">
+        {{msg.message}}
+        </div>
+    {% endfor %}
+    {% endif %}
+{% endblock %}
+{% block content %} {% endblock %}
+
+{% include './base_footer.html' %}
+</body>
+</html>
