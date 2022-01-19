@@ -24,6 +24,6 @@ app_name='home'
 urlpatterns = [
     path('', views.HomeView.as_view(), name='home'),
     path('privateservices/', views.PrivateServicesView.as_view(), name='privateservices'),
-    path('membership/', views.MembershipView.as_view(), name='membership'),
+    path('membership/', views.MembershipView, name='membership'),
     path('partner/', views.PartnerListView.as_view(), name='partner'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

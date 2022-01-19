@@ -1,5 +1,6 @@
 {% extends "home/base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="py-5 text-center" >
     <div class="container">
@@ -15,21 +16,73 @@
       </div>
     </div>
   </div>
-  <div class="py-5">
+  <div class="py-3 text-center" >
     <div class="container">
       <div class="row">
-        <div class="ml-auto col-lg-7 text-center text-lg-left">
-          <h1>Subscribe for more information</h1>
-          <p class="mb-0">We will inform you about service, pricing and scheduling of the membership program. Get a special discount, if you subscribe right now.</p>
-        </div>
-        <div class="col-lg-4 d-flex justify-content-center align-items-center p-3">
-          <form class="form-inline mb-0">
-            <div class="input-group"> <input type="text" class="form-control" placeholder="Email or phonenumber" id="form2">
-              <div class="input-group-append"> <button class="btn btn-primary" type="button">Subscribe</button> </div>
+        <div class="mx-auto p-4 col-lg-7">
+          <h1 class="mb-4">Subscribe for more information</h1>
+            <!--  novalidate disables browser validation -->
+            <!--  invalid-feedback is not working, no error messages will be shown except inline red. See https://github.com/twbs/bootstrap/issues/29439 -->
+
+          <form method="POST" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
+            {% csrf_token %}
+              <div class="col-md-6">
+                  {{ s_form.first_name }}
+              </div>
+              <div class="col-md-6">
+                  {{ s_form.last_name }}
+              </div>
+              <div class="col-12">
+                  {{ s_form.email }}
+              </div>
+              <div class="col-md-6">
+                  {{ s_form.country }}
+              </div>
+              <div class="col-md-6">
+                  {{ s_form.phone }}
+                <small class="form-text text-muted text-start"> {{ s_form.phone.help_text }} </small>
+              </div>
+            <div class="form-check">
+                  {{ s_form.terms_accepted }}
+              <label class="form-check-label">{{ s_form.terms_accepted.label }}</label>
             </div>
+
+
+
+
+              <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="terms_accepted">
+              <label class="form-check-label" for="terms_accepted">Terms & Conditions</label>
+            </div>
+            <div class="p-2 form-group"> <input class="btn btn-primary" type="submit" value="Submit"> </div>
           </form>
+
         </div>
       </div>
     </div>
   </div>
+</div>
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+
 {% endblock %}
