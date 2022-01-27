@@ -1,6 +1,17 @@
 {% extends "home/base.html" %}
 {% load static %}
+{% load i18n %}
+
 {% block content %}
+
+{% for info in info_list %}
+  {% if info.is_active == True %}
+    <div class="alert alert-secondary text-center" role="alert">
+      <strong>{% blocktranslate with info=info.info_text %}INFO: {{ info }}{% endblocktranslate %}</strong>
+    </div>
+  {% endif %}
+{% endfor %}
+
   <div class="py-5">
     <div class="container">
       <div class="row">

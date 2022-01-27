@@ -1,25 +1,56 @@
+{% load i18n %}
+
 <!DOCTYPE html>
 <html>
 <head>
-<!--  TEST -->
 <title>{% block title %}{{ settings.APP_NAME }}{% endblock %}</title>
 
 {% include './base_header.html' %}
 
 </head>
+
 <body>
+
 {% include './base_navbar.html' %}
+
 {% block messages %}
     {% if messages %}
     {% for msg in messages %}
-        <div class="alert alert-{{msg.level_tag}}" role="alert">
+        <div class="alert alert-{{msg.level_tag}} text-center" role="alert">
         {{msg.message}}
         </div>
     {% endfor %}
     {% endif %}
 {% endblock %}
+{% include './popup.html' %}
+
 {% block content %} {% endblock %}
 
 {% include './base_footer.html' %}
 </body>
+<!-- Opens popup.html after 2s once per session when DOM is ready //
+        Shows popup.html when clicked on id="contactbutton"  -->
+<script>
+  $(document).ready(function () {
+    let popup_shown = sessionStorage.getItem("myModal");
+
+    if (!popup_shown) {
+        setTimeout(function () {
+          $("#myModal").modal('show');
+        }, 2000);
+        sessionStorage.setItem("myModal", 1);
+        console.log('Show modal for new session.');
+        }
+    else {
+        $("#myModal").hide();
+        console.log('Modal was already shown in this session.');
+    }
+
+  });
+
+  $("#contactbutton").click(function () {
+    $("#myModal").modal('show');
+    console.log('I am back');
+  });
+</script>
 </html>

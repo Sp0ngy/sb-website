@@ -1,5 +1,6 @@
 {% extends "home/base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <div class="py-5" style="background-image: url(&quot;https://static.pingendo.com/cover-stripes.svg&quot;); background-position: right bottom; background-size: cover;" >
@@ -10,7 +11,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12 text-center">
+        <div class="col-md-12 text-center embed-responsive embed-responsive-4by3">
           <iframe src="https://www.google.com/maps/d/embed?mid=1qxAWDS89_I6caYTmS8_1TfVRqX5powPF&ehbc=2E312F" width="640" height="480"></iframe>
         </div>
       </div>
@@ -25,6 +26,7 @@
       </div>
       <div class="row justify-content-center">
 
+        <!--  TODO: Add+Highlight onsite location in TRNC -->
         {% for partner in partner_list %}
         <div class="col-lg-4 col-md-3 p-4" style="">
           <div class="row">

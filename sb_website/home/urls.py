@@ -20,10 +20,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 # static()
-app_name='home'
+app_name = 'home'
 urlpatterns = [
-    path('', views.HomeView.as_view(), name='home'),
-    path('privateservices/', views.PrivateServicesView.as_view(), name='privateservices'),
+    path('', views.HomeInfoListView.as_view(), name='home'),
+    path('privateservice/', views.PrivateServiceView.as_view(), name='privateservice'),
     path('membership/', views.MembershipView, name='membership'),
     path('partner/', views.PartnerListView.as_view(), name='partner'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
