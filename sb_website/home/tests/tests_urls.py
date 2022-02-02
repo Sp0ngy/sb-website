@@ -1,6 +1,6 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, reverse_lazy, resolve
-from ..views import HomeInfoListView, MembershipView, PartnerListView, PrivateServicesView
+from home.views import HomeInfoListView, MembershipView, PartnerListView, PrivateServiceView
 
 
 # Testcase for test_"url"_url_is_resolved
@@ -16,9 +16,9 @@ class TestUrls(SimpleTestCase):
         self.assertEqual(resolver.func.view_class, HomeInfoListView)
 
     def test_privateservice_url_resolves(self):
-        url = reverse('home:privateservices')
+        url = reverse('home:privateservice')
         resolver = resolve(url)
-        self.assertEqual(resolver.func.view_class, PrivateServicesView)
+        self.assertEqual(resolver.func.view_class, PrivateServiceView)
 
     # MembershipView here is a function based view
     def test_membership_url_resolves(self):

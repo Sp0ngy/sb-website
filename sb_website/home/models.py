@@ -44,9 +44,12 @@ class Subscription(models.Model):
     first_name = models.CharField(max_length=50, null=False, verbose_name='First Name')
     last_name = models.CharField(max_length=50, null=False, verbose_name='Last Name')
     country = CountryField('Select country Test')
-    # Make Email unique
     email = models.EmailField(null=False, unique=True, verbose_name='Email')
+    #TODO: Change phone to required instead of mail, Cyprus no one uses email
     phone = models.CharField(max_length=20, blank=True, null=True, verbose_name='Phone')
+    #TODO: Add to form, make it required
+    date_of_birth = models.DateField(auto_now=False, auto_now_add=False, blank=True)
+    internal_note = models.TextField(blank=True)
     terms_accepted = models.BooleanField()
 
     # Standard

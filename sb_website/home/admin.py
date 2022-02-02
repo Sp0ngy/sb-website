@@ -10,7 +10,7 @@ class PartnerAdmin(ImportExportMixin, admin.ModelAdmin):
 
 class SubscriptionAdmin(ImportExportMixin, admin.ModelAdmin):
     model = Subscription
-    list_display = ['first_name', 'last_name', 'country', 'email', 'phone', 'created_at']
+    list_display = ['first_name', 'last_name', 'country', 'internal_note']
 
 class InfoBoxAdmin(admin.ModelAdmin):
     model = InfoBox

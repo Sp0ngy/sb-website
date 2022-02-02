@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from ..models import *
+from home.models import InfoBox
 
 # User need privileges in DB to create the test tables:
 # GRANT ALL PRIVILEGES ON "name_of_test_db".* TO `myUser`@`localhost`;
@@ -12,6 +12,12 @@ class TestViews(TestCase):
     def setUp(self):
         self.client = Client()
         self.home_url = reverse('home:home')
+        self.infobox = InfoBox.objects.create(
+            is_active=True,
+            info_name='Test Info Box',
+            info_text='Some test Info',
+        )
+
 
     def test_home_GET(self):
 
