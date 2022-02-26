@@ -1,11 +1,9 @@
 from django.db import models
 from django_countries.fields import CountryField
-from django.conf import settings
 
 #Export via MySQL Shell or Workbench in csv and import in Google MyMaps "DjangoMap"
 class Partner(models.Model):
     name = models.CharField(max_length=50, null=False)
-    #not in user: title = models.CharField(max_length=50, blank=True)
     type = models.ForeignKey('PartnerType', on_delete=models.CASCADE)
     city = models.CharField(max_length=50, null=False)
     country = CountryField(blank_label='Select country')
@@ -44,11 +42,9 @@ class Subscription(models.Model):
     first_name = models.CharField(max_length=50, null=False, verbose_name='First Name')
     last_name = models.CharField(max_length=50, null=False, verbose_name='Last Name')
     country = CountryField('Select country Test')
-    email = models.EmailField(null=False, unique=True, verbose_name='Email')
-    #TODO: Change phone to required instead of mail, Cyprus no one uses email
-    phone = models.CharField(max_length=20, blank=True, null=True, verbose_name='Phone')
-    #TODO: Add to form, make it required
-    date_of_birth = models.DateField(auto_now=False, auto_now_add=False, blank=True)
+    email = models.EmailField(null=False, unique=True, blank=True, verbose_name='Email')
+    phone = models.CharField(max_length=20, verbose_name='Phone')
+    date_of_birth = models.DateField(auto_now=False, auto_now_add=False)
     internal_note = models.TextField(blank=True)
     terms_accepted = models.BooleanField()
 

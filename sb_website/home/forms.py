@@ -17,7 +17,7 @@ class SubscriptionForm(ModelForm):
             'class': 'form-control',
             'placeholder': 'First Name*',
             'value': False,
-            'id': 'validationCustom01',
+            'id': 'first_name',
         }
     ), error_messages={'max_length': 'First Name: Please enter a maximum of 50 letters.'})
 
@@ -26,18 +26,18 @@ class SubscriptionForm(ModelForm):
             'class': 'form-control',
             'placeholder': 'Last Name*',
             'value': False,
-            'id': 'validationCustom02',
+            'id': 'last_name',
         }
     ), error_messages={'max_length': 'Last Name: Please enter a maximum of 50 letters.'})
 
     email = forms.EmailField(widget=forms.EmailInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'Email*',
+            'placeholder': 'Email',
             'value': False,
-            'id': 'validationCustom03',
+            'id': 'email',
         }
-    ), error_messages={'unique': 'Email: A Subscription with this email already exists.'})
+    ), error_messages={'unique': 'Email: A Subscription with this email already exists.'}, required=False)
 
     # See docs https://pypi.org/project/django-countries/
     # Add Northern Part of Cyprus to List
@@ -45,7 +45,7 @@ class SubscriptionForm(ModelForm):
         attrs={
             'class': 'form-select',
             'value': False,
-            'id': 'validationCustom04',
+            'id': 'country',
             'style': '.custom-select',
         }
     ))
@@ -53,23 +53,33 @@ class SubscriptionForm(ModelForm):
     phone = forms.CharField(widget=forms.TextInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'Phone',
+            'placeholder': 'Phone*',
             'value': False,
-            'id': 'validationCustom05',
+            'id': 'phone',
         }
-    ), help_text='Example: +90 141 4992834', required=False)
+    ), help_text='Example: +90 141 4992834')
+
+    #TODO: make Datepicker nice and neat, see Django Admin Interface for reference
+    date_of_birth = forms.DateField(widget=forms.DateInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Date of Birth*',
+            'value': False,
+            'id': 'datepicker',
+        }
+    ), help_text='Example: +90 141 4992834')
 
     terms_accepted = forms.BooleanField(widget=forms.CheckboxInput(
         attrs={
             'class': 'form-check-input',
             'value': False,
-            'id': 'validationCustom06',
+            'id': 'terms_accepted',
         }
     ), label='Terms & Conditions*')
 
     class Meta:
         model = Subscription
-        fields = ['first_name', 'last_name', 'email', 'country', 'phone', 'terms_accepted']
+        fields = ['first_name', 'last_name', 'email', 'country', 'phone', 'date_of_birth', 'terms_accepted']
 
 
 

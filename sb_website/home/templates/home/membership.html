@@ -34,11 +34,12 @@
             {{ s_form.non_field_errors }}
               <div class="col-md-6"> {{ s_form.first_name }} </div>
               <div class="col-md-6"> {{ s_form.last_name }} </div>
-              <div class="col-12"> {{ s_form.email }} </div>
               <div class="col-md-6"> {{ s_form.country }} </div>
+              <div class="col-md-6"> {{ s_form.date_of_birth }} </div>
               <div class="col-md-6"> {{ s_form.phone }}
                 <small class="form-text text-muted text-start"> {{ s_form.phone.help_text }} </small>
               </div>
+              <div class="col-md-6"> {{ s_form.email }} </div>
             <div class="form-check"> {{ s_form.terms_accepted }}
               <label class="form-check-label">{{ s_form.terms_accepted.label }}</label>
             </div>
@@ -71,6 +72,11 @@
       }, false)
     })
 })()
+</script>
+<script>
+    $(document).ready(function () {
+        $('#datepicker').datepicker();
+    });
 </script>
 
 {% endblock %}

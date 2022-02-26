@@ -1,7 +1,6 @@
-# TODO: auto backup of generic model prepared for import with import-export lib
-#   also export of media files
-
 from ..models import Partner
+
+#planned to be a generic db backup script
 
 # TODO: pass in Model from command line as arg
 def run():

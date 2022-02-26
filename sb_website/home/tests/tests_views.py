@@ -5,7 +5,6 @@ from home.models import InfoBox
 # User need privileges in DB to create the test tables:
 # GRANT ALL PRIVILEGES ON "name_of_test_db".* TO `myUser`@`localhost`;
 
-# TODO: error in test
 class TestViews(TestCase):
 
     # This function is run before every function test method
