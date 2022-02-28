@@ -153,6 +153,7 @@ STATIC_URL = 'static/'
 
 # Static files uploaded by a user during development
 
+# MEDIA_URL is the url to access the files in MEDIA_ROOT
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
 

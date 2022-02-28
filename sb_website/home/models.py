@@ -41,7 +41,7 @@ class PartnerType(models.Model):
 class Subscription(models.Model):
     first_name = models.CharField(max_length=50, null=False, verbose_name='First Name')
     last_name = models.CharField(max_length=50, null=False, verbose_name='Last Name')
-    country = CountryField('Select country Test')
+    country = CountryField('Country')
     email = models.EmailField(null=False, unique=True, blank=True, verbose_name='Email')
     phone = models.CharField(max_length=20, verbose_name='Phone')
     date_of_birth = models.DateField(auto_now=False, auto_now_add=False)
