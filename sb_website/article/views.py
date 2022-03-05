@@ -1,5 +1,5 @@
 
-from django.views.generic.list import ListView
+from django.views.generic import ListView, DetailView
 
 from django.utils.translation import gettext as _
 from django.utils.translation import pgettext_lazy
@@ -7,8 +7,14 @@ from django.utils.translation import pgettext_lazy
 from .models import Article
 
 
-class KnowledgeListView(ListView):
+class ArticleList(ListView):
 
     model = Article
-    template_name = 'article/index.html'
+    template_name = 'article/article_list.html'
     page_name = _('Cancer Knowledge')
+
+class ArticleDetail(DetailView):
+
+    model = Article
+    template_name = 'article/article_detail.html'
+

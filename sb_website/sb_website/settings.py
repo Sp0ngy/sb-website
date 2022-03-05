@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     # Scripting API
-    # https://django-extensions.readthedocs.io/en/
+    # https://django-extensions.readthedocs.io/en/latest/shell_plus.html
     'django_extensions',
 ]
 
@@ -96,6 +96,7 @@ WSGI_APPLICATION = 'sb_website.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 # database, user, password, default-character-set defined in my.ini
 
+# TODO: Change to postgres
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

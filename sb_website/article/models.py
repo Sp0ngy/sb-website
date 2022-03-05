@@ -1,17 +1,26 @@
 from django.db import models
 
 # Create your models here.
-
+# TODO: check models attribute null=True if necessary or not
 class Article(models.Model):
 
-    title = models.CharField(max_length=100, null=False, verbose_name='Article Titel')
-    template = models.ForeignKey('ArticleTemplate', on_delete=models.CASCADE, null=False, verbose_name='Article Type')
+    title = models.CharField(max_length=100, verbose_name='Article Titel')
+    template = models.ForeignKey('ArticleTemplate', on_delete=models.CASCADE, verbose_name='Article Template')
     category = models.ForeignKey('ArticleCategory', on_delete=models.CASCADE, null=True, verbose_name='Article Category')
-    short_description_en = models.TextField(max_length=500, null=False, verbose_name='Short Description EN')
-    short_description_tr = models.TextField(max_length=500, null=False, verbose_name='Short Description TR')
-    description_en = models.TextField(max_length=10000, null=False, verbose_name='Description EN')
-    description_tr = models.TextField(max_length=10000, null=False, verbose_name='Description TR')
+    short_description_en = models.TextField(max_length=500, verbose_name='Short Description EN', help_text='Short, interessting text for catching the reader')
+    short_description_tr = models.TextField(max_length=500, blank=True, verbose_name='Short Description TR')
+    main_description_en = models.TextField(max_length=10000, verbose_name='Description EN')
+    main_description_tr = models.TextField(max_length=10000, blank=True, verbose_name='Description TR')
     thumbnail = models.ImageField(upload_to='article/', default='article/placeholder.png')
+
+    #TODO: Change to Fielfield so it can handle image and video, check if filefield is enough to identify which template is needed, so "template" can be deleted
+
+    primary_image = models.ImageField(upload_to='article/%Y/%m/%d', default=None, blank=True, null=True, help_text='Ratio Width=1 Height=1')
+    primary_image_source = models.CharField(max_length=150, blank=True, verbose_name='Primary Image Source')
+
+    paragraph1 = models.ForeignKey('Paragraph', blank=True, null=True, on_delete=models.CASCADE, related_name='first_paragraph')
+    paragraph2 = models.ForeignKey('Paragraph', blank=True, null=True, on_delete=models.CASCADE, related_name='second_paragraph')
+    paragraph3 = models.ForeignKey('Paragraph', blank=True, null=True, on_delete=models.CASCADE, related_name='third_paragraph')
 
     # Standard
     created_at = models.DateTimeField(auto_now_add=True)
@@ -24,21 +33,29 @@ class Article(models.Model):
     # String shown in Admin-Interface
     class Meta:
         verbose_name = 'Article'
+        ordering = ['-created_at']
 
-class ArticleImages(models.Model):
-    article = models.ForeignKey('Article', on_delete=models.CASCADE)
-    # TODO: make path for upload_to dynamic
-    image = models.ImageField(upload_to='article/images', default=None)
+# Addable Paragraph for a Article
+class Paragraph(models.Model):
+    paragraph_image = models.ImageField(upload_to='article/%Y/%m/%d', default=None, blank=True, null=True,
+                                        help_text='Ratio Width=1 Height=1')
+    paragraph_image_source = models.CharField(max_length=150, blank=True, verbose_name='Paragraph Image Source')
+    headline = models.CharField(max_length=300, verbose_name='Paragraph Headline')
+    description_en = models.TextField(max_length=10000, verbose_name='Description EN')
+    description_tr = models.TextField(max_length=10000, blank=True, verbose_name='Description TR')
+
+    # Standard
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     # Object Name
-
     def __str__(self):
-        objectname = self.article.title
-        return objectname
+        return self.headline
 
     # String shown in Admin-Interface
     class Meta:
-        verbose_name = 'Images of Article'
+        verbose_name = 'Paragraph'
+
 
 # Necessary for selecting correct template
 class ArticleTemplate(models.Model):
@@ -62,22 +79,3 @@ class ArticleCategory(models.Model):
     # String shown in Admin-Interface
     class Meta:
         verbose_name = 'Article Category'
-
-#article_title
-#article_type: Video, Text_Image, Text
-#article_category
-#article_short_description_en
-#article_short_description_tr
-#article_description_en
-#article_description_tr
-#thumbnail (will be shown on Cancer Knowledge List view)
-#image/s (multiple) see https://stackoverflow.com/questions/34006994/how-to-upload-multiple-images-to-a-blog-post-in-django
-#video
-                                                                 #
-#created_at
-#updated_at
-                                                                 #
-#CancerKnowledgeListView:
-                                                                 #
-#Template shows article_title, short_description, thumbnail, pub_date;
-#if has Video, show little Play Button (and Language on List View)

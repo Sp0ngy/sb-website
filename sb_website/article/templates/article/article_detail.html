@@ -1,0 +1,101 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <!--  main template -->
+    <div class="container mt-3">
+      <div class="row" >
+        <div class="col-md-12 text-center">
+          <h1 id="article_title">{{ object.title }}</h1>
+          <h6 class="text-primary text-uppercase mb-1" id="article_category" > {{ object.category }} </h6>
+        </div>
+      </div>
+
+       {% if object.primary_image %}
+          <div class="row my-3">
+            <div class="text-center mx-auto col-lg-8 col-10">
+                <img class="img-fluid d-block mx-auto" src="{{ object.primary_image.url }}">
+            </div>
+            {% if object.primary_image_source %}
+              <p id="primary_image_source" class="text-muted blockquote-footer text-center">
+                  <span>&#169;</span>{{ object.primary_image_source }}</p>
+            {% endif %}
+          </div>
+       {% endif%}
+
+      <!--  TODO: prepare template for turkish language -->
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>{{ object.main_description_en }}</p>
+        </div>
+      </div>
+
+        <!--  paragraph1 template -->
+        {% if object.paragraph1 %}
+          {% if object.paragraph1.paragraph_image %}
+              <div class="row">
+                <div class="text-center mx-auto col-lg-8 col-10">
+                    <img class="img-fluid d-block mx-auto" src="{{ object.paragraph1.paragraph_image.url }}">
+                </div>
+                  {% if object.paragraph1.paragraph_image_source %}
+                      <p id="paragraph1_image_source" class="text-muted blockquote-footer text-center">
+                          <span>&#169;</span>{{ object.paragraph1.paragraph_image_source }}</p>
+                  {% endif %}
+              </div>
+          {% endif %}
+            <!--  TODO: prepare template for turkish language -->
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h4 class="">{{ object.paragraph1.headline }}</h4>
+              <p> {{ object.paragraph1.description_en }}</p>
+            </div>
+          </div>
+        {% endif %}
+
+        <!--  paragraph2 template -->
+        {% if object.paragraph2 %}
+          {% if object.paragraph2.paragraph_image %}
+              <div class="row">
+                <div class="text-center mx-auto col-lg-8 col-10">
+                    <img class="img-fluid d-block mx-auto" src="{{ object.paragraph2.paragraph_image.url }}">
+                </div>
+                  {% if object.paragraph2.paragraph_image_source %}
+                      <p id="paragraph2_image_source" class="text-muted blockquote-footer text-center">
+                          <span>&#169;</span>{{ object.paragraph2.paragraph_image_source }}</p>
+                  {% endif %}
+              </div>
+          {% endif %}
+            <!--  TODO: prepare template for turkish language -->
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h4 class="">{{ object.paragraph2.headline }}</h4>
+              <p> {{ object.paragraph2.description_en }}</p>
+            </div>
+          </div>
+        {% endif %}
+
+        <!--  paragraph3 template -->
+        {% if object.paragraph3 %}
+          {% if object.paragraph3.paragraph_image %}
+              <div class="row">
+                <div class="text-center mx-auto col-lg-8 col-10">
+                    <img class="img-fluid d-block mx-auto" src="{{ object.paragraph3.paragraph_image.url }}">
+                </div>
+                  {% if object.paragraph3.paragraph_image_source %}
+                      <p id="paragraph3_image_source" class="text-muted blockquote-footer text-center">
+                          <span>&#169;</span>{{ object.paragraph3.paragraph_image_source }}</p>
+                  {% endif %}
+              </div>
+          {% endif %}
+            <!--  TODO: prepare template for turkish language -->
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h4 class="">{{ object.paragraph3.headline }}</h4>
+              <p> {{ object.paragraph3.description_en }}</p>
+            </div>
+          </div>
+        {% endif %}
+
+    </div>
+{% endblock %}
