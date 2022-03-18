@@ -11,15 +11,16 @@
           <li class="nav-item mx-2"> <a class="nav-link" href="{% url 'home:partner' %}">Worldwide Partner</a> </li>
           <li class="nav-item mx-2"> <a class="nav-link navbar-brand text-primary mt-2" href="{% url 'home:home' %}"><i class="fa d-inline fa-lg fa-stop-circle-o"></i>
               <b> German Diagnostic Center</b></a> </li>
-          <li class="nav-item mx-2 dropdown">
+
+          <li class="nav-item mx-2 dropdown d-flex flex-column justify-content-center">
               <a class="nav-link  dropdown-toggle text-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Cancer Knowledge
+                  Health Knowledge
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Publications</a></li>
-                <li><a class="dropdown-item" href="#">Cancer Blog</a></li>
+                <li><a class="dropdown-item" href="{% url 'article:article_list' %}">Cancer Blog</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Helpful Links</a></li>
+                <li><a class="dropdown-item" href="#">Publications</a></li>
+
               </ul>
           </li>
           <li class="nav-item mx-2"> <a class="nav-link" href="#">Professional Services</a> </li>
@@ -30,6 +31,7 @@
   <nav class="navbar navbar-dark bg-primary">
     <div class="container d-flex justify-content-between">
         <!--  TODO: Translation will be auto-handled by Django based on location. Save as template for later use -->
+        <!--  TODO: We speak: Turkish flag, North Cyprus flag, English, German -->
         <div class="dropdown show">
             <button class="btn navbar-brand dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 <!-- Bootstrap Translate Icon -->

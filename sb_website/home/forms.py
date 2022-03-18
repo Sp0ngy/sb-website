@@ -59,7 +59,6 @@ class SubscriptionForm(ModelForm):
         }
     ), help_text='Example: +90 141 4992834')
 
-    #TODO: make Datepicker nice and neat, see Django Admin Interface for reference
     date_of_birth = forms.DateField(widget=forms.DateInput(
         attrs={
             'class': 'form-control',
@@ -67,7 +66,7 @@ class SubscriptionForm(ModelForm):
             'value': False,
             'id': 'datepicker',
         }
-    ), help_text='Example: +90 141 4992834')
+    ),)
 
     terms_accepted = forms.BooleanField(widget=forms.CheckboxInput(
         attrs={

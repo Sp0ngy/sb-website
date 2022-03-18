@@ -1,22 +1,20 @@
 from django.db import models
 
 # Create your models here.
-# TODO: check models attribute null=True if necessary or not
 class Article(models.Model):
 
     title = models.CharField(max_length=100, verbose_name='Article Titel')
     template = models.ForeignKey('ArticleTemplate', on_delete=models.CASCADE, verbose_name='Article Template')
     category = models.ForeignKey('ArticleCategory', on_delete=models.CASCADE, null=True, verbose_name='Article Category')
-    short_description_en = models.TextField(max_length=500, verbose_name='Short Description EN', help_text='Short, interessting text for catching the reader')
-    short_description_tr = models.TextField(max_length=500, blank=True, verbose_name='Short Description TR')
+    short_description_en = models.TextField(max_length=350, verbose_name='Short Description EN', help_text='Short, interessting text for catching the reader.')
+    short_description_tr = models.TextField(max_length=350, blank=True, verbose_name='Short Description TR')
     main_description_en = models.TextField(max_length=10000, verbose_name='Description EN')
     main_description_tr = models.TextField(max_length=10000, blank=True, verbose_name='Description TR')
     thumbnail = models.ImageField(upload_to='article/', default='article/placeholder.png')
 
-    #TODO: Change to Fielfield so it can handle image and video, check if filefield is enough to identify which template is needed, so "template" can be deleted
-
-    primary_image = models.ImageField(upload_to='article/%Y/%m/%d', default=None, blank=True, null=True, help_text='Ratio Width=1 Height=1')
-    primary_image_source = models.CharField(max_length=150, blank=True, verbose_name='Primary Image Source')
+    primary_image = models.ImageField(upload_to='article/%Y/%m/%d', default=None, blank=True, null=True)
+    primary_video = models.FileField(upload_to='article/%Y/%m/%d', default=None, blank=True, null=True, help_text='Required format: MP4')
+    primary_media_source = models.CharField(max_length=150, blank=True, verbose_name='Primary Image Source')
 
     paragraph1 = models.ForeignKey('Paragraph', blank=True, null=True, on_delete=models.CASCADE, related_name='first_paragraph')
     paragraph2 = models.ForeignKey('Paragraph', blank=True, null=True, on_delete=models.CASCADE, related_name='second_paragraph')
@@ -71,6 +69,9 @@ class ArticleTemplate(models.Model):
 
 class ArticleCategory(models.Model):
     name = models.CharField(max_length=50, null=False)
+
+    # Standard
+    created_at = models.DateTimeField(auto_now_add=True)
 
     # Object Name
     def __str__(self):

@@ -3,6 +3,9 @@
 {% load i18n %}
 
 {% block content %}
+<!--  Current language: {{ LANGUAGE_CODE }} -->
+{% get_current_language as LANGUAGE_CODE %}
+
     <!--  main template -->
     <div class="container mt-3">
       <div class="row" >
@@ -17,17 +20,35 @@
             <div class="text-center mx-auto col-lg-8 col-10">
                 <img class="img-fluid d-block mx-auto" src="{{ object.primary_image.url }}">
             </div>
-            {% if object.primary_image_source %}
-              <p id="primary_image_source" class="text-muted blockquote-footer text-center">
-                  <span>&#169;</span>{{ object.primary_image_source }}</p>
+            {% if object.primary_media_source %}
+              <p id="primary_media_source" class="text-muted blockquote-footer text-center">
+                  <span>&#169;</span>{{ object.primary_media_source }}</p>
             {% endif %}
           </div>
        {% endif%}
 
-      <!--  TODO: prepare template for turkish language -->
+        {% if object.primary_video %}
+          <div class="row my-3">
+            <div class="text-center mx-auto col-lg-8 col-10">
+                <video class="ratio ratio-4x3" controls>
+                    <source type="video/mp4" src="{{ object.primary_video.url }}">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            {% if object.primary_media_source %}
+              <p id="primary_media_source" class="text-muted blockquote-footer text-center">
+                  <span>&#169;</span>{{ object.primary_media_source }}</p>
+            {% endif %}
+          </div>
+       {% endif%}
+
       <div class="row">
         <div class="col-md-12 text-center">
+          {% if LANGUAGE_CODE == 'tr' and object.main_description_tr %}
+          <p>{{ object.main_description_tr }}</p>
+          {% else %}
           <p>{{ object.main_description_en }}</p>
+          {% endif %}
         </div>
       </div>
 
@@ -44,11 +65,15 @@
                   {% endif %}
               </div>
           {% endif %}
-            <!--  TODO: prepare template for turkish language -->
+
           <div class="row">
             <div class="col-md-12 text-center">
               <h4 class="">{{ object.paragraph1.headline }}</h4>
+              {% if LANGUAGE_CODE == 'tr' and object.paragraph1.description_tr %}
+              <p> {{ object.paragraph1.description_tr }}</p>
+              {% else %}
               <p> {{ object.paragraph1.description_en }}</p>
+              {% endif %}
             </div>
           </div>
         {% endif %}
@@ -66,11 +91,15 @@
                   {% endif %}
               </div>
           {% endif %}
-            <!--  TODO: prepare template for turkish language -->
+
           <div class="row">
             <div class="col-md-12 text-center">
               <h4 class="">{{ object.paragraph2.headline }}</h4>
+              {% if LANGUAGE_CODE == 'tr' and object.paragraph2.description_tr %}
+              <p> {{ object.paragraph2.description_tr }}</p>
+              {% else %}
               <p> {{ object.paragraph2.description_en }}</p>
+              {% endif %}
             </div>
           </div>
         {% endif %}
@@ -88,14 +117,24 @@
                   {% endif %}
               </div>
           {% endif %}
-            <!--  TODO: prepare template for turkish language -->
+
           <div class="row">
             <div class="col-md-12 text-center">
               <h4 class="">{{ object.paragraph3.headline }}</h4>
+              {% if LANGUAGE_CODE == 'tr' and object.paragraph3.description_tr %}
+              <p> {{ object.paragraph3.description_tr }}</p>
+              {% else %}
               <p> {{ object.paragraph3.description_en }}</p>
+              {% endif %}
             </div>
           </div>
         {% endif %}
 
+      <div class="row" >
+        <div class="col-md-6 d-flex flex-row justify-content-end"><a class="btn btn-outline-primary" href="{% url 'article:article_list' %}">Back</a></div>
+        <div class="col-md-6 d-flex flex-row justify-content-start"><a class="btn btn-outline-primary" href="{% url 'home:home' %}">Home</a></div>
+      </div>
+
     </div>
+
 {% endblock %}

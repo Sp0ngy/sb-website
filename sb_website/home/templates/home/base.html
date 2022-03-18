@@ -52,5 +52,27 @@
     $("#myModal").modal('show');
     console.log('I am back');
   });
+
+
+
+
+
+</script>
+
+<!-- in article_list.html a list with category.pk is created and as {{ article_category_pk_list|json_script:"my_array" }} passed into the template //
+        myArray puts that into a constant and function scrolls to element  -->
+<script>
+
+  const myArray = JSON.parse(document.getElementById('my_array').textContent);
+  console.log(myArray);
+
+  $.each(myArray, function( index, value ) {
+    $("#category_" + value).click(function () {
+        $('html, body').animate({
+            scrollTop: $("#article_category_" + value).offset().top
+        }, 200);
+  });
+  console.log(index + ": Function for Scroll to: article_category_" + value);
+  });
 </script>
 </html>

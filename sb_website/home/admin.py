@@ -12,12 +12,15 @@ class SubscriptionAdmin(ImportExportMixin, admin.ModelAdmin):
     model = Subscription
     list_display = ['first_name', 'last_name', 'country', 'internal_note']
 
-class InfoBoxAdmin(admin.ModelAdmin):
+class InfoBoxAdmin(ImportExportMixin, admin.ModelAdmin):
     model = InfoBox
     list_display = ['info_name', 'is_active']
 
+class PartnerTypeAdmin(ImportExportMixin, admin.ModelAdmin):
+    model = PartnerType
+
 admin.site.register(Subscription, SubscriptionAdmin)
 admin.site.register(Partner, PartnerAdmin)
-admin.site.register(PartnerType)
+admin.site.register(PartnerType, PartnerTypeAdmin)
 admin.site.register(InfoBox, InfoBoxAdmin)
 

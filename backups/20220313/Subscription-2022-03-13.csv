@@ -1,0 +1,13 @@
+id,first_name,last_name,country,email,phone,date_of_birth,internal_note,terms_accepted,created_at,updated_at
+15,Nico,Schürrrle,AD,nico@web.de,0128381238,2022-04-19,,1,2022-03-13 09:56:59,2022-03-13 09:56:59
+14,Seval,Beykan,CY,ggg@web.fde,01713449559,1990-12-18,,1,2022-03-09 19:40:50,2022-03-09 19:40:50
+13,Nico,Schürrle,BH,,01928,2022-03-01,,1,2022-02-02 21:23:39,2022-02-02 21:23:39
+12,Patient2,fromGermany,DE,patient2fromgermany@mail.com,01738888899,2022-02-01,"20220201:
+- breast cancer, already operated
+- needs consulting for next step and guidance for coming time
+- offer for membership for Health Program for 150€ OR consulting service for 70€/h",0,2022-02-01 20:06:36,2022-02-01 20:06:36
+11,Patient1,from Cyprus,CY,patientfromcyprus@mail.com,01738888899,1985-11-02,"20220201:
+- Patient has breast cancer
+- agrees to 50€ fee for consulting service
+- interested in membership for Health Program
+- interested in membership for Health Program for her 2 children",0,2022-02-01 20:00:50,2022-02-01 20:12:16
