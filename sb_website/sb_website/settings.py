@@ -91,23 +91,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sb_website.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-# database, user, password, default-character-set defined in my.ini
-
-# TODO: Change to postgres
+# Docs: https://docs.djangoproject.com/en/4.0/ref/databases/#postgresql-notes
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join('C:\ProgramData\MySQL\MySQL Server 8.0', 'my.ini'),
-            },
-        'TEST': {
-            'NAME': 'test_database',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'sb_database',
+        'USER': 'postgres',
+        'PASSWORD': 'shitshit01',
+        'HOST': 'localhost',
+        'PORT': '5432',
             },
     }
-}
 
 
 # Password validation
