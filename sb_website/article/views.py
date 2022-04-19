@@ -1,10 +1,11 @@
 
 from django.views.generic import ListView, DetailView
+from django.shortcuts import render
 
 from django.utils.translation import gettext as _
 from django.utils.translation import pgettext_lazy
 
-from .models import Article, ArticleCategory
+from .models import Article, ArticleCategory, Publication
 
 
 class ArticleList(ListView):
@@ -33,4 +34,16 @@ class ArticleDetail(DetailView):
 
     model = Article
     template_name = 'article/article_detail.html'
+
+class PublicationList(ListView):
+
+    model = Article
+    template_name = 'article/publication.html'
+    page_name = 'Publications'
+
+    def get(self, request):
+        publications = Publication.objects.all()
+        ctx = {'publication_list': publications, 'page_name': self.page_name}
+        return render(request, self.template_name, ctx)
+
 

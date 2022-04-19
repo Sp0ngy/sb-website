@@ -1,6 +1,29 @@
 from django.db import models
 from django_countries.fields import CountryField
 
+
+class EmailNullField(models.EmailField):  # subclass the CharField
+    description = "EmailField that stores NULL but returns ''"
+
+    def to_python(self, value):
+        # this is the value right out of the db, or an instance
+        # if an instance, just return the instance
+        if isinstance(value, models.EmailField):
+            return value
+        if value is None:  # if the db has a NULL (None in Python)
+            return ''      # convert it into an empty string
+        else:
+            return value   # otherwise, just return the value
+
+    def get_prep_value(self, value):  # catches value right before sending to db
+        if value == '':
+            # if Django tries to save an empty string, send the db None (NULL)
+            return None
+        else:
+            # otherwise, just pass the value
+            return value
+
+
 #Export via MySQL Shell or Workbench in csv and import in Google MyMaps "DjangoMap"
 class Partner(models.Model):
     name = models.CharField(max_length=50, null=False)
@@ -42,16 +65,22 @@ class Subscription(models.Model):
     first_name = models.CharField(max_length=50, null=False, verbose_name='First Name')
     last_name = models.CharField(max_length=50, null=False, verbose_name='Last Name')
     country = CountryField('Country')
-    # TODO: defaul=null
-    email = models.EmailField(null=False, unique=True, blank=True, verbose_name='Email')
-    phone = models.CharField(max_length=20, verbose_name='Phone')
+    email = models.EmailField(null=True, unique=True, blank=True, verbose_name='Email')
+    phone = models.CharField(max_length=20, unique=True, verbose_name='Phonenumber')
     date_of_birth = models.DateField(auto_now=False, auto_now_add=False)
-    internal_note = models.TextField(blank=True)
     terms_accepted = models.BooleanField()
 
     # Standard
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    # make email nullable
+    def save(self):
+
+        if self.email == '':
+            self.email = None
+
+        super(Subscription, self).save()
 
     # Object Name
     def __str__(self):
@@ -60,7 +89,7 @@ class Subscription(models.Model):
 
     # String shown in Admin-Interface
     class Meta:
-        verbose_name = 'Subscriber'
+        verbose_name = 'Subscription'
 
 class InfoBox(models.Model):
     is_active = models.BooleanField(blank=True)

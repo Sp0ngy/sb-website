@@ -29,7 +29,6 @@ class TestViews(TestCase):
             terms_accepted= True,
         )
 
-    # TODO: Check if InfoBoxes appear nicely? I dont know, what to test here
     def test_home_GET(self):
         response = self.client.get(self.home_url)
 

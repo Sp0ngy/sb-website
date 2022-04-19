@@ -37,7 +37,7 @@ class SubscriptionForm(ModelForm):
             'value': False,
             'id': 'email',
         }
-    ), error_messages={'unique': 'Email: A Subscription with this email already exists.'}, required=False)
+    ), required=False)
 
     # See docs https://pypi.org/project/django-countries/
     # Add Northern Part of Cyprus to List

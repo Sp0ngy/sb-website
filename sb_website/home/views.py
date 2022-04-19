@@ -47,14 +47,41 @@ class HomeInfoListView(ListView):
         ctx = {'info_list': info_list, 'page_name': self.page_name}
         return render(request, self.template_name, ctx)
 
+# TODO: Add ScrollTo JS functionality
 class PrivateServiceView(CustomTemplateView):
     template_name = 'home/private_service.html'
     page_name = 'Private Service'
 
+# Errors displayed as message because bootstrap is-invalid is not working
+# Loop through each key and get error message
+def get_form_messages_as_str(form, request, messagetype):
+
+    # TODO: Check how to fix this with python
+    # def get_messagetype(request, message):
+    #     # messagetype arguments
+    #     # Default messagetype
+    #     if messagetype == 'error':
+    #         messagetype = messages.error()
+    #     if messagetype == 'warning':
+    #         messagetype = messages.warning()
+    #     if messagetype == 'success':
+    #         messagetype = messages.success()
+    #     else:
+    #         messagetype = messages.info()
+
+
+    for key in form.errors:
+                # gives JSON dictionary with key "message"
+                error_json = form.errors.get(key).as_json()
+                # Converts JSON to Python dictionary
+                error_python = json.loads(error_json)
+                # Gets value of key 'message'
+                error_message = [value['message'] for value in error_python]
+                messages.warning(request, error_message[0])
+
 def MembershipView(request):
 
-    # TODO: Add email backend to subscription
-    #   Check invalid-feedback w bootstrap v5 and if working remove else statement
+    # TODO: Add email backend to subscription -> when Subcribe POST, send Mail, add view to cancel subscription for phone or mail
 
     page_name = 'Membership Program'
 
@@ -68,16 +95,7 @@ def MembershipView(request):
             messages.success(request, f'You successfully subscribed for news about Health Membership Program')
             return redirect('home:membership')
         else:
-            # Errors displayed as message because bootstrap is-invalid is not working
-            # Loop through each key and get error message
-            for key in form.errors:
-                # gives JSON dictionary with key "message"
-                error_json = form.errors.get(key).as_json()
-                # Converts JSON to Python dictionary
-                error_python = json.loads(error_json)
-                # Gets value of key 'message'
-                error_message = [value['message'] for value in error_python]
-                messages.warning(request, error_message[0])
+            get_form_messages_as_str(form=form, request=request, messagetype='info')
 
     # if a GET (or any other method) we'll create a blank form
     else:
