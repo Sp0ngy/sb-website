@@ -42,7 +42,7 @@ class PublicationList(ListView):
     page_name = 'Publications'
 
     def get(self, request):
-        publications = Publication.objects.all()
+        publications = Publication.objects.all().order_by('-created_at')
         ctx = {'publication_list': publications, 'page_name': self.page_name}
         return render(request, self.template_name, ctx)
 

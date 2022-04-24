@@ -126,13 +126,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-#
+# Default Language
 LANGUAGE_CODE = 'en'
 
 LANGUAGES = [
     ('en', _('English')),
     ('tr', _('Turkish')),
+    ('de', _('German')),
 ]
+
+# Default: LANGUAGE_COOKIE_NAME = 'django_language'
 
 TIME_ZONE = 'UTC'
 
@@ -156,4 +159,8 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale')
+]
 

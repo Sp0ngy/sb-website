@@ -83,16 +83,18 @@ class ArticleCategory(models.Model):
 
 class Publication(models.Model):
 
-    title = models.CharField(null=False, max_length=100, verbose_name='Publication Titel')
-    authors = models.CharField(null=True, blank=True, max_length=200, verbose_name='List of Authors')
+    title = models.CharField(null=False, max_length=500, verbose_name='Publication Titel')
+
+    authors = models.CharField(null=True, blank=True, max_length=500, verbose_name='List of Authors')
     abstract = models.TextField(null=False, verbose_name='Abstract')
     methods = models.TextField(null=True, blank=True, verbose_name='Methods')
-    conclusion = models.TextField(null=True, blank=True, verbose_name='Conclusion')
     result = models.TextField(null=True, blank=True, verbose_name='Result')
+    conclusion = models.TextField(null=True, blank=True, verbose_name='Conclusion')
     reference = models.CharField(null=False, max_length=600, verbose_name='Reference Link', help_text='Link to another online source, e.g. pubmed.com')
+    pub_copyright = models.CharField(null=True, blank=True, max_length=500, verbose_name='Copyright')
 
     # Download
-    publication_as_file = models.FileField(upload_to='article/%Y/%m/%d', default=None, blank=True, null=True, help_text='Recommended format: PDF', verbose_name='File')
+    publication_as_file = models.FileField(upload_to='article/%Y/%m/%d', default=None, blank=True, null=True, help_text='Recommended format: PDF', verbose_name='Paper')
 
     # Standard
     created_at = models.DateTimeField(auto_now_add=True)

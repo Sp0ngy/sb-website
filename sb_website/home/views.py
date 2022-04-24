@@ -47,6 +47,8 @@ class HomeInfoListView(ListView):
         ctx = {'info_list': info_list, 'page_name': self.page_name}
         return render(request, self.template_name, ctx)
 
+
+
 # TODO: Add ScrollTo JS functionality
 class PrivateServiceView(CustomTemplateView):
     template_name = 'home/private_service.html'
@@ -54,21 +56,10 @@ class PrivateServiceView(CustomTemplateView):
 
 # Errors displayed as message because bootstrap is-invalid is not working
 # Loop through each key and get error message
-def get_form_messages_as_str(form, request, messagetype):
+def get_form_messages_as_str(form, request, messagetype='warning'):
 
-    # TODO: Check how to fix this with python
-    # def get_messagetype(request, message):
-    #     # messagetype arguments
-    #     # Default messagetype
-    #     if messagetype == 'error':
-    #         messagetype = messages.error()
-    #     if messagetype == 'warning':
-    #         messagetype = messages.warning()
-    #     if messagetype == 'success':
-    #         messagetype = messages.success()
-    #     else:
-    #         messagetype = messages.info()
-
+    # available messagetype arguments: info, warning, success
+    # default: warning
 
     for key in form.errors:
                 # gives JSON dictionary with key "message"
@@ -77,7 +68,11 @@ def get_form_messages_as_str(form, request, messagetype):
                 error_python = json.loads(error_json)
                 # Gets value of key 'message'
                 error_message = [value['message'] for value in error_python]
-                messages.warning(request, error_message[0])
+
+                # select method to call
+                method_to_call = getattr(messages, messagetype)
+                # pass arguments into method
+                result = method_to_call(request, error_message[0])
 
 def MembershipView(request):
 
@@ -92,10 +87,10 @@ def MembershipView(request):
         # check whether it's valid:
         if form.is_valid():
             form.save()
-            messages.success(request, f'You successfully subscribed for news about Health Membership Program')
+            messages.success(request, f'You successfully subscribed for news about our upcoming Health Program')
             return redirect('home:membership')
         else:
-            get_form_messages_as_str(form=form, request=request, messagetype='info')
+            get_form_messages_as_str(form, request, 'info')
 
     # if a GET (or any other method) we'll create a blank form
     else:

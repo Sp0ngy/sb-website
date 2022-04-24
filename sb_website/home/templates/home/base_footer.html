@@ -1,27 +1,33 @@
 {% load i18n %}
-<!-- TODO: Fix links in footer -->
+{% load static %}
+
 <div class="py-3" >
-    <div class="container">
+    <div class="container border-top">
       <div class="row">
-        <div class="col-lg-4 col-6 p-3">
-          <h5> <b>Main</b> </h5>
+        <div class="col-lg-2 col-6 p-3">
+          <h5> <b>Services</b> </h5>
           <ul class="list-unstyled">
-            <li> <a href="#">Home</a> </li>
-            <li> <a href="#">Features</a> </li>
-            <li> <a href="#">Pricing</a> </li>
+            <li> <a href="{% url 'home:privateservice' %}">{% translate "Private" %}</a> </li>
+            <li> <a href="{% url 'home:membership' %}">{% translate "Health Program" %}</a> </li>
+            <!-- TODO: Fix Link -->
+            <li> <a href="#">{% translate "Professional" %}</a> </li>
           </ul>
         </div>
-        <div class="col-lg-4 col-6 p-3">
-          <h5> <b>Others</b> </h5>
+        <div class="col-lg-2 col-6 p-3">
+          <h5> <b>{% translate "Knowledge" %}</b> </h5>
           <ul class="list-unstyled">
-            <li> <a href="#">FAQ</a> </li>
-            <li> <a href="#">Resources</a> </li>
-            <li> <a href="#">Career</a> </li>
+            <li> <a href="{% url 'article:article_list' %}">{% translate "Blog" %}</a> </li>
+            <li> <a href="{% url 'article:publication_list' %}">{% translate "Publications" %}</a> </li>
           </ul>
         </div>
-        <div class="col-lg-3 col-md-4 p-3">
-          <h5> <b>About</b> </h5>
-          <p class="mb-0"> I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls.</p>
+        <div class="col-lg-8 col-md-4 p-3">
+          <h5 class="text-end"> <b>{% translate "Company Information" %}</b> </h5>
+          <ul class="list-unstyled text-end">
+            <li class="text-end">German Diagnostic Center - Curie Consulting</li>
+            <li>mail@germandiagnostic.com - mail@curie-consulting.com</li>
+            <li>+49 1514 7692193</li>
+            <li>{% translate "Cyprus" %}</li>
+          </ul>
         </div>
       </div>
       <div class="row">

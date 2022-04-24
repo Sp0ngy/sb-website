@@ -2,8 +2,9 @@ from django import forms
 from django.forms import ModelForm
 from .models import Subscription
 from django_countries.fields import CountryField
+from django.utils.translation import gettext_lazy as _
 
-#
+
 class SubscriptionForm(ModelForm):
 
     # !Validation!
@@ -15,25 +16,25 @@ class SubscriptionForm(ModelForm):
     first_name = forms.CharField(widget=forms.TextInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'First Name*',
+            'placeholder': _('First Name*'),
             'value': False,
             'id': 'first_name',
         }
-    ), error_messages={'max_length': 'First Name: Please enter a maximum of 50 letters.'})
+    ), error_messages={'max_length': _('First Name: Please enter a maximum of 50 letters.')})
 
     last_name = forms.CharField(widget=forms.TextInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'Last Name*',
+            'placeholder': _('Last Name*'),
             'value': False,
             'id': 'last_name',
         }
-    ), error_messages={'max_length': 'Last Name: Please enter a maximum of 50 letters.'})
+    ), error_messages={'max_length': _('Last Name: Please enter a maximum of 50 letters.')})
 
     email = forms.EmailField(widget=forms.EmailInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'Email',
+            'placeholder': _('Email'),
             'value': False,
             'id': 'email',
         }
@@ -53,16 +54,16 @@ class SubscriptionForm(ModelForm):
     phone = forms.CharField(widget=forms.TextInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'Phone*',
+            'placeholder': _('Phone*'),
             'value': False,
             'id': 'phone',
         }
-    ), help_text='Example: +90 141 4992834')
+    ), help_text=_('Example: +90 141 4992834'))
 
     date_of_birth = forms.DateField(widget=forms.DateInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'Date of Birth*',
+            'placeholder': _('Date of Birth*'),
             'value': False,
             'id': 'datepicker',
         }
@@ -74,7 +75,7 @@ class SubscriptionForm(ModelForm):
             'value': False,
             'id': 'terms_accepted',
         }
-    ), label='Terms & Conditions*')
+    ),)
 
     class Meta:
         model = Subscription

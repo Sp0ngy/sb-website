@@ -18,14 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\sb_website\settings.py:133
-msgid "English"
+#: .\article\templates\article\article_list.html:14
+msgid "About"
 msgstr ""
 
-#: .\sb_website\settings.py:134
-msgid "Turkish"
-msgstr ""
-
-#: .\sb_website\settings.py:135
-msgid "German"
+#: .\article\views.py:15
+msgid "Cancer Knowledge"
 msgstr ""
