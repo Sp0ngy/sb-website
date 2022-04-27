@@ -1,14 +1,101 @@
 {% extends "home/base.html" %}
 {% load static %}
+{% load i18n %}
+
 {% block content %}
   <div class="py-3 text-center">
     <div class="container">
+
+      <div class="row">
+        <div class="row d-flex flex-row justify-content-center mb-5">
+          <h2 class="my-3 text-uppercase text-center text-dark">What treatment options are there and which is the right one for me?</h2>
+          <h3 class=" text-center text-dark">This question is on the minds of everyone who is diagnosed with cancer.</h3>
+        </div>
+
+        <!-- Left side of Image -->
+        <div class="col-md-3 d-flex flex-column p-0">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row d-flex flex-row justify-content-center m-0" >
+                  <img class="img-fluid d-block ratio ratio-1x1" style="max-width:25%;" src="{% static 'home/circle_w_1.png' %}" >
+                </div>
+                <div class="row row d-flex flex-row justify-content-center text-dark">
+                  <p>{% translate "83% of people diagnosed with cancer" %}<strong>{% translate " want a second opinion " %}</strong>{% translate "from a specialist" %}</p>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-auto">
+              <div class="col-md-12">
+                <div class="row d-flex flex-row justify-content-center m-0" >
+                </div>
+                <div class="row row d-flex flex-row justify-content-center text-dark ">
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- Image Center -->
+        <div class="col-md-6 d-flex flex-row justify-content-center">
+            <div class="col-md-12">
+            <img class="img-fluid d-block mb-3 ratio ratio-1x1" src="{% static 'home/pie_chart.png' %}" >
+            <div class="">
+              <p class="text-muted blockquote-footer">{% translate "Source:" %} BertelsmannsStiftung gesundheitsmontior 2016</p>
+            </div>
+              </div>
+          </div>
+        <!-- Right side of Image -->
+        <div class="col-md-3 d-flex flex-column p-0">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row d-flex flex-row justify-content-center m-0" >
+                <img class="img-fluid d-block ratio ratio-1x1" style="max-width:25%;" src="{% static 'home/circle_w_2.png' %}" >
+              </div>
+              <div class="row row d-flex flex-row justify-content-center text-dark">
+                <p>{% translate "52% of patients feel" %} <strong>{% translate " more confident " %}</strong>{% translate "after getting a second opinion" %}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-auto">
+            <div class="col-md-12">
+              <div class="row d-flex flex-row justify-content-center m-0" >
+                <img class="img-fluid d-block ratio ratio-1x1" style="max-width:25%;" src="{% static 'home/circle_w_3.png' %}" >
+              </div>
+              <div class="row row d-flex flex-row justify-content-center text-dark ">
+                <p>{% translate "45% of patients" %} <strong>{% translate " change their decision " %}</strong>{% translate "of the treatment path after a second opinion" %}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-white">
+          <img src="{% static 'home/background_question1.png' %}" class="card-img" alt="...">
+          <div class="img-overlay">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text">Last updated 3 mins ago</p>
+          </div>
+          <div class="row">
+            <div class="text-white">
+              <img src="{% static 'home/background_question2.png' %}" class="card-img" alt="...">
+              <div class="img-overlay">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">Last updated 3 mins ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
       <div class="row justify-content-center">
         <div class="col-lg-6 col-6 p-4" style=""> <i class="d-block fa fa-circle fa-3x mb-2 text-muted"></i>
-          <p class="lead">{% blocktranslate %}Cancer Consulting{% endblocktranslate %}</p> <a class="btn btn-primary" href="#">{% translate "Go To" %}</a>
+          <p class="lead">Cancer Consulting</p> <a class="btn btn-primary" href="#">Go To</a>
         </div>
         <div class="col-lg-6 col-6 p-4"> <i class="d-block fa fa-stop-circle fa-3x mb-2 text-muted"></i>
-          <p class="lead">{% blocktranslate %}Professional Second Opinion{% endblocktranslate %}</p> <a class="btn btn-primary" href="#">{% translate "Go To" %}</a>
+          <p class="lead">Professional Second Opinion</p> <a class="btn btn-primary" href="#">{% translate "Go To" %}</a>
         </div>
       </div>
     </div>

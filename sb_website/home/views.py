@@ -1,17 +1,3 @@
-
-# TODO: translations see https://www.youtube.com/watch?v=AlJ8cGbk8ps
-
-# Internationalization:
-# - Specify all translation (via e.g. gettext(), reference  https://docs.djangoproject.com/en/4.0/topics/i18n/translation/#internationalization-in-template-code)
-# - Once: Create directory local in app
-# - Add 'django.middleware.locale.LocaleMiddleware' in correct order: https://docs.djangoproject.com/en/1.11/topics/i18n/translation/#how-django-discovers-language-preference'
-# - "django-admin makemessages" flag -l for LOCALE - specifies the country code:
-# e.g. "django-admin makemessages -l tr" for Turkey country code...creates .mo file
-# -  "django-admin compilemessages" compiles .mo file: e.g. "django-admin compilemessages -l tr"
-# - Add {% load i18n %} to all templates
-# - Check the .po file for #fuzzy tags, those have to be accepted manually by removing #fuzzy tag
-# See checklist here https://stackoverflow.com/questions/2328185/django-i18n-common-causes-for-translations-not-appearing
-
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 from .models import Partner, InfoBox
@@ -21,7 +7,7 @@ from django.shortcuts import redirect, render
 from django.utils.translation import gettext as _
 from django.utils.translation import pgettext_lazy
 import json
-
+from django.core.mail import send_mail
 
 
 class CustomTemplateView(TemplateView):
@@ -48,8 +34,6 @@ class HomeInfoListView(ListView):
         return render(request, self.template_name, ctx)
 
 
-
-# TODO: Add ScrollTo JS functionality
 class PrivateServiceView(CustomTemplateView):
     template_name = 'home/private_service.html'
     page_name = 'Private Service'
@@ -88,6 +72,7 @@ def MembershipView(request):
         if form.is_valid():
             form.save()
             messages.success(request, f'You successfully subscribed for news about our upcoming Health Program')
+
             return redirect('home:membership')
         else:
             get_form_messages_as_str(form, request, 'info')
