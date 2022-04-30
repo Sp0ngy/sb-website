@@ -38,6 +38,10 @@ class PrivateServiceView(CustomTemplateView):
     template_name = 'home/private_service.html'
     page_name = 'Private Service'
 
+class ProfessionalServiceView(CustomTemplateView):
+    template_name = 'home/professional_service.html'
+    page_name = 'Professional Service'
+
 # Errors displayed as message because bootstrap is-invalid is not working
 # Loop through each key and get error message
 def get_form_messages_as_str(form, request, messagetype='warning'):

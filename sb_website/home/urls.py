@@ -19,11 +19,13 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+# TODO: Add Contact page
 # static()
 app_name = 'home'
 urlpatterns = [
     path('', views.HomeInfoListView.as_view(), name='home'),
     path('privateservice/', views.PrivateServiceView.as_view(), name='privateservice'),
+    path('professionalservice/', views.ProfessionalServiceView.as_view(), name='professionalservice'),
     path('membership/', views.MembershipView, name='membership'),
     path('partner/', views.PartnerListView.as_view(), name='partner'),
     path('i18n/', include('django.conf.urls.i18n')),

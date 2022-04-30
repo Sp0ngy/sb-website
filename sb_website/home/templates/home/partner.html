@@ -3,11 +3,18 @@
 {% load i18n %}
 
 {% block content %}
-<div class="py-5" style="background-image: url(&quot;https://static.pingendo.com/cover-stripes.svg&quot;); background-position: right bottom; background-size: cover;" >
+<div class="py-3 text-center">
     <div class="container">
+        <!-- Page Headline -->
+        <div class="row">
+        <div class="row d-flex flex-row justify-content-center mb-5">
+          <h2 class="my-3 text-uppercase text-center text-dark">{% translate "Why does it make sense for us to accompany you on your journey?" %}</h2>
+          <h3 class=" text-center text-dark">{% translate "Because we are a <strong>strong partner</strong> with a <strong>strong network</strong> of specialists." %}</h3>
+        </div>
+
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1>{% translate "See where our Partners are located:" %}</h1>
+          <h3>{% translate "See where our Partners are located:" %}</h3>
         </div>
       </div>
       <div class="row">

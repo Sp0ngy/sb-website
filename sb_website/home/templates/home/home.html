@@ -13,52 +13,75 @@
 {% endfor %}
 
   <!-- TODO: add links to the h1 and images -->
-  <div class="py-5">
+  <!-- TODO: change blocktranslate to translate -->
+  <div class="py-3">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <h1 class="text-center mb-4 text-capitalize">{% translate "Our portfolio in cancer" %}</h1>
-          <div class="row">
-            <div class="col-lg-5 col-md-6 p-md-4 col-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg" width="1500"> </div>
-            <div class="col-md-6 offset-lg-1 d-flex flex-column justify-content-center py-4">
-              <h2 class="my-3 text-uppercase text-right text-primary">{% translate "Private Services for You!" %}</h2>
+          <!-- Paragraph right -->
+          <div class="row my-5">
+            <div class="col-md-4 d-flex flex-row justify-content-center">
+              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_private_service.svg' %}" alt="Private Service">
+            </div>
+            <div class="col-md-8 ">
+              <h2 class="my-3 text-uppercase text-right"><strong>{% translate "Private Services for You!" %}</strong></h2>
               <p class="lead text-right">
-                {% blocktranslate %}Wether it is a second opinion, explanation of medical terms, connect you to one of our cancer specialists or you just want some to talk about the next steps in your treatment - We are here for you. See more detailed information.{% endblocktranslate %}</p>
+                {% translate "Wether it is a second opinion, explanation of medical terms, connect you to one of our cancer specialists or you just want some to talk about the next steps in your treatment - We are here for you. See more detailed information." %}</p>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 d-flex flex-column justify-content-center order-2 order-md-1 py-4">
-              <h2 class="my-3 text-uppercase text-primary">{% translate "Worldwide Specialist Network" %}</h2>
-              <p class="lead">{% blocktranslate %}With us you will get access to some of the worlds specialists in cancer diagnostic and treatment. We make the newest and most advanced cancer treatment available for you."{% endblocktranslate %}</p>
+
+          <!-- Paragraph left -->
+          <div class="row my-5">
+            <div class="col-md-8">
+              <h2 class="my-3 text-uppercase "><strong>{% translate "Worldwide Specialist Network" %}</strong></h2>
+              <p class="lead">{% translate "With us you will get access to some of the worlds specialists in cancer diagnostic and treatment. We make the newest and most advanced cancer treatment available for you." %}</p>
             </div>
-            <div class="col-lg-5 col-md-6 p-md-4 col-3 offset-lg-1 order-1 order-md-2"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg" width="1500"> </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-5 col-md-6 p-md-4 col-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-3.svg" width="1500"> </div>
-            <div class="col-md-6 offset-lg-1 d-flex flex-column justify-content-center py-4">
-              <h2 class="my-3 text-uppercase text-right text-primary">{% translate "Cancer Knowledge" %}</h2>
-              <p class="lead text-right">{% blocktranslate %}With us you will get access to some of the worlds specialists in cancer diagnostic and treatment. We make the newest and most advanced cancer treatment available for you."{% endblocktranslate %}</p>
+            <div class="col-md-4 d-flex flex-row justify-content-center">
+              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_network_home.svg' %}" alt="Network">
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 d-flex flex-column justify-content-center order-2 order-md-1 py-4">
-              <h2 class="my-3 text-uppercase text-primary">{% translate "Strong in cancer research" %}</h2>
-              <p class="lead">{% blocktranslate %}We combine theory and application - the best way of finding the optimal ways for diagnose and treatment. Look at some of our recent papers and find projects we are recently researching in.{% endblocktranslate %}</p>
+
+          <!-- Paragraph right -->
+          <div class="row my-5">
+            <div class="col-md-4 d-flex flex-row justify-content-center">
+              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_knowledge.svg' %}" alt="Private Service">
             </div>
-            <div class="col-lg-5 col-md-6 p-md-4 col-3 offset-lg-1 order-1 order-md-2"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-2.svg" width="1500"> </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-5 col-md-6 p-md-4 col-3"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-3.svg" width="1500"> </div>
-            <div class="col-md-6 offset-lg-1 d-flex flex-column justify-content-center py-4">
-              <h2 class="my-3 text-uppercase text-right text-primary">{% translate "Professional services" %}</h2>
-              <p class="lead text-right">{% blocktranslate %}We provide professional services as dosimetry service, implementation of software for treatment planning, consult for implementation of new workflows and more. Contact us for getting first information and learn how we can improve the quality in your services.{% endblocktranslate %}</p>
+            <div class="col-md-8 ">
+              <h2 class="my-3 text-uppercase text-right"><strong>{% translate "Cancer Knowledge" %}</strong></h2>
+              <p class="lead text-right">
+                {% translate "With us you will get access to some of the worlds specialists in cancer diagnostic and treatment. We make the newest and most advanced cancer treatment available for you." %}</p>
             </div>
           </div>
+
+          <!-- Paragraph left -->
+          <div class="row my-5">
+            <div class="col-md-8">
+              <h2 class="my-3 text-uppercase "><strong>{% translate "Strong in cancer research" %}</strong></h2>
+              <p class="lead">{% translate "We combine theory and application - the best way of finding the optimal ways for diagnose and treatment. Look at some of our recent papers and find projects we are recently researching in." %}</p>
+            </div>
+            <div class="col-md-4 d-flex flex-row justify-content-center">
+              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_research.svg' %}" alt="Research">
+            </div>
+          </div>
+
+          <!-- Paragraph right -->
+          <div class="row my-5">
+            <div class="col-md-4 d-flex flex-row justify-content-center">
+              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_professional.svg' %}" alt="Professional">
+            </div>
+            <div class="col-md-8 ">
+              <h2 class="my-3 text-uppercase text-right"><strong>{% translate "Professional services" %}</strong></h2>
+              <p class="lead text-right">
+                {% translate "We provide professional services as dosimetry service, implementation of software for treatment planning, education of staff and more. Contact us for getting first information and learn how we can improve the quality in your services." %}</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
-
+ <!-- TODO: Nice pictures -->
   <div class="py-5 text-center">
     <div class="container">
       <div class="row">

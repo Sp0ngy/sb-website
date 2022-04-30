@@ -5,19 +5,18 @@
 {% block content %}
   <div class="py-3 text-center">
     <div class="container">
-
-      <div class="row">
+        <div class="row">
+        <!-- Page Headline -->
         <div class="row d-flex flex-row justify-content-center mb-5">
-          <h2 class="my-3 text-uppercase text-center text-dark">What treatment options are there and which is the right one for me?</h2>
-          <h3 class=" text-center text-dark">This question is on the minds of everyone who is diagnosed with cancer.</h3>
+          <h2 class="my-3 text-uppercase text-center text-dark">{% translate "What treatment options are there and which is the right one for me?" %}</h2>
+          <h3 class=" text-center text-dark">{% translate "This question is on the minds of everyone who is diagnosed with cancer." %}</h3>
         </div>
-
         <!-- Left side of Image -->
         <div class="col-md-3 d-flex flex-column p-0">
             <div class="row">
               <div class="col-md-12">
                 <div class="row d-flex flex-row justify-content-center m-0" >
-                  <img class="img-fluid d-block ratio ratio-1x1" style="max-width:25%;" src="{% static 'home/circle_w_1.png' %}" >
+                  <img class="img-fluid d-block ratio ratio-1x1" style="max-width:25%;" src="{% static 'home/view_privateservice/circle_w_1.png' %}" >
                 </div>
                 <div class="row row d-flex flex-row justify-content-center text-dark">
                   <p>{% translate "83% of people diagnosed with cancer" %}<strong>{% translate " want a second opinion " %}</strong>{% translate "from a specialist" %}</p>
@@ -36,7 +35,7 @@
         <!-- Image Center -->
         <div class="col-md-6 d-flex flex-row justify-content-center">
             <div class="col-md-12">
-            <img class="img-fluid d-block mb-3 ratio ratio-1x1" src="{% static 'home/pie_chart.png' %}" >
+            <img class="img-fluid d-block mb-3 ratio ratio-1x1" src="{% static 'home/view_privateservice/pie_chart.png' %}" >
             <div class="">
               <p class="text-muted blockquote-footer">{% translate "Source:" %} BertelsmannsStiftung gesundheitsmontior 2016</p>
             </div>
@@ -47,7 +46,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="row d-flex flex-row justify-content-center m-0" >
-                <img class="img-fluid d-block ratio ratio-1x1" style="max-width:25%;" src="{% static 'home/circle_w_2.png' %}" >
+                <img class="img-fluid d-block ratio ratio-1x1" style="max-width:25%;" src="{% static 'home/view_privateservice/circle_w_2.png' %}" >
               </div>
               <div class="row row d-flex flex-row justify-content-center text-dark">
                 <p>{% translate "52% of patients feel" %} <strong>{% translate " more confident " %}</strong>{% translate "after getting a second opinion" %}</p>
@@ -57,7 +56,7 @@
           <div class="row mt-auto">
             <div class="col-md-12">
               <div class="row d-flex flex-row justify-content-center m-0" >
-                <img class="img-fluid d-block ratio ratio-1x1" style="max-width:25%;" src="{% static 'home/circle_w_3.png' %}" >
+                <img class="img-fluid d-block ratio ratio-1x1" style="max-width:25%;" src="{% static 'home/view_privateservice/circle_w_3.png' %}" >
               </div>
               <div class="row row d-flex flex-row justify-content-center text-dark ">
                 <p>{% translate "45% of patients" %} <strong>{% translate " change their decision " %}</strong>{% translate "of the treatment path after a second opinion" %}</p>
@@ -65,67 +64,65 @@
             </div>
           </div>
         </div>
-
-        <div class="text-white">
-          <img src="{% static 'home/background_question1.png' %}" class="card-img" alt="...">
-          <div class="img-overlay">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text">Last updated 3 mins ago</p>
-          </div>
-          <div class="row">
-            <div class="text-white">
-              <img src="{% static 'home/background_question2.png' %}" class="card-img" alt="...">
-              <div class="img-overlay">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text">Last updated 3 mins ago</p>
+        </div>
+        <!-- Consulting -->
+        <div class="pt-5 text-center">
+            <div class="row">
+              <h2 class="my-1 text-uppercase text-center">{% translate "We accompany and advise you with your cancer ciagnose" %}</h2>
+              <div class="mx-auto col-md-10"> <img src="{% static 'home/view_privateservice/pictogram_doctor.svg' %}" alt="Doctor">
+                <!-- TODO: Check translation -->
+                <p class="my-2">{% translate "Depending on the type and stage of cancer, the question of the right treatment is not easy to answer. Our consulting expert" %} <strong>Fr. Dr. rer. Nat. Seval Beykan</strong> {% translate "provides you with professional and personal support on your way.
+                We explain technical terms, refer you to specialists and follow up if there are uncertainties about diagnosis and treatment. We are at your side with our close and personal consultation.
+                Our expertise comes from several years of intensive collaboration with cancer patients, as well as some of our leading involvement in the most innovative treatments for cancer in nuclear medicine." %}
+                </p>
+              </div>
+            </div>
+        </div>
+        <!-- Network -->
+        <div class="pt-5 text-center" >
+            <div class="row">
+              <h2 class="my-1 text-uppercase text-center">{% translate "Benefit from our worldwide network of cancer specialists" %}</h2>
+              <div class="mx-auto col-md-10"> <img src="{% static 'home/view_privateservice/pictogram_network.svg' %}" alt="Medical Network">
+                <!-- TODO: Check translation -->
+                <p class="my-2">Every year, new, more effective drugs are discovered and therapy recommendations are revised. Whereas 50 years ago the diagnosis of cancer was in most cases fatal, today more than 50% of all patients can be permanently cured.
+                The second opinion offers the possibility to check the existing diagnosis and therapy suggestions by the most current knowledge from all neighboring disciplines of the illness and to change if necessary to your advantage: for greatest possible healing chances with all forms of cancer. Through optimal therapy, numerous types of cancer that were once considered incurable can now be successfully treated.
+                </p>
+              </div>
+            </div>
+        </div>
+        <!-- Pricing tables -->
+        <div class="row d-flex justify-content-center text-center ">
+          <!-- Pricing Consulting -->
+          <div class="p-3 col-lg-6 col-md-6">
+              <div class="card border-0">
+                <div class="card-body p-4"> <img src="{% static 'home/view_privateservice/pictogram_offer_A.svg' %}" alt="Offer A">
+                  <h2 class="mt-3"> <b>Cancer Consulting</b> </h2>
+                  <h4 class="my-3 pb-3 border-top border-bottom" contenteditable="true"> <sub><strong>{% translate "Get your personal consulting on cancer disease of any kind." %}</strong></sub> </h4>
+                  <ul class="">
+                    <li class="mb-1">{% translate "Professional and experienced guidance of a cancer patient through all stages of diagnosis & treatment" %}</li>
+                    <li class="mb-1">{% translate "Explanation of technical terms, diagnostic procedures and treatments" %}</li>
+                    <li class="mb-1">{% translate "Psychological support in coping with the disease" %}</li>
+                    <li class="mb-1">{% translate "Application of the latest findings in cancer research" %}</li>
+                  </ul> <a class="btn mt-3 btn-primary" href="#" >{% translate "More Information on request" %}</a> </div>
+              </div>
+            </div>
+          <!-- Pricing Second Opinion -->
+          <div class="p-3 col-lg-6 col-md-6">
+              <div class="card border-0">
+                <div class="card-body p-4"> <img src="{% static 'home/view_privateservice/pictogram_offer_B.svg' %}" alt="Offer B">
+                  <h2 class="mt-3"> <b>Second Opinion</b> </h2>
+                  <h4 class="my-3 pb-3 border-top border-bottom" contenteditable="true"> <sub><strong>We find the specialist for a second opinion for your cancer type.</strong></sub> </h4>
+                  <ul class="">
+                    <li class="mb-1">{% translate "Selection from network of research institution, university hospitals and practicing specialists" %}</li>
+                    <li class="mb-1">{% translate "Reviewing and recommending action of cancer treatment & diagnosis" %}</li>
+                    <li class="mb-1">{% translate "Optimization of the chances of cancer cure" %}</li>
+                    <li class="mb-1">{% translate "Assurance and safeguarding of a therapy decision" %}</li>
+                    <li class="mb-1">{% translate "via phone or video conference, onsite-meeting" %}</li>
+                  </ul> <a class="btn mt-3 btn-primary" href="#">{% translate "More Information on request" %}</a> </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-
-
-
-
-      <div class="row justify-content-center">
-        <div class="col-lg-6 col-6 p-4" style=""> <i class="d-block fa fa-circle fa-3x mb-2 text-muted"></i>
-          <p class="lead">Cancer Consulting</p> <a class="btn btn-primary" href="#">Go To</a>
-        </div>
-        <div class="col-lg-6 col-6 p-4"> <i class="d-block fa fa-stop-circle fa-3x mb-2 text-muted"></i>
-          <p class="lead">Professional Second Opinion</p> <a class="btn btn-primary" href="#">{% translate "Go To" %}</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5 text-center">
-    <div class="container">
-      <div class="row">
-        <div class="mx-auto col-md-10"> <i class="d-block fa fa-circle fa-3x mb-2 text-muted"></i>
-          <h2 class="my-3 text-uppercase text-center">{% translate "Cancer Consulting" %}</h2>
-          <ul>
-            <li class="mb-2 text-center"> <b>{% translate "Absorbed" %}</b>&nbsp;{% translate "- in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke." %}</li>
-            <li class="mb-2 text-center"> <b>{% translate "Absorbed" %}</b>&nbsp;{% translate "- in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke." %}</li>
-            <li class="mb-2 text-center"> <b>{% translate "Absorbed" %}</b>&nbsp;{% translate "- in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke." %}</li>
-            </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5 text-center" >
-    <div class="container">
-      <div class="row">
-        <div class="mx-auto col-md-10"> <i class="d-block fa fa-stop-circle fa-3x mb-2 text-muted"></i>
-          <h2 class="my-3 text-uppercase text-center">{% translate "Professional second opinion" %}</h2>
-          <ul>
-            <li class="mb-2 text-center"> <b>{% translate "Absorbed" %}</b>&nbsp;{% translate "- in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke." %}</li>
-            <li class="mb-2 text-center"> <b>{% translate "Absorbed" %}</b>&nbsp;{% translate "- in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke." %}</li>
-            <li class="mb-2 text-center"> <b>{% translate "Absorbed" %}</b>&nbsp;{% translate "- in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke." %}</li>
-            </ul>
-        </div>
-      </div>
     </div>
   </div>
 {% endblock %}

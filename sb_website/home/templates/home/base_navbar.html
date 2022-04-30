@@ -6,7 +6,7 @@
       </button>
       <div class="collapse navbar-collapse text-center justify-content-center" id="navbar3">
         <ul class="navbar-nav">
-          <li class="nav-item mx-2"> <a class="nav-link" href="{% url 'home:privateservice' %}">{% translate "Private Services" %}</a> </li>
+          <li class="nav-item mx-2"> <a class="nav-link" href="{% url 'home:privateservice' %}">{% translate "Private Service" %}</a> </li>
           <li class="nav-item mx-2"> <a class="nav-link" href="{% url 'home:membership' %}">{% translate "Membership Program" %}</a> </li>
           <li class="nav-item mx-2"> <a class="nav-link" href="{% url 'home:partner' %}">{% translate "Worldwide Partner" %}</a> </li>
           <li class="nav-item mx-2"> <a class="nav-link navbar-brand text-primary mt-2" href="{% url 'home:home' %}"><i class="fa d-inline fa-lg fa-stop-circle-o"></i>
@@ -22,7 +22,7 @@
                 <li><a class="dropdown-item" href="{% url 'article:publication_list' %}">{% translate "Publications" %}</a></li>
               </ul>
           </li>
-          <li class="nav-item mx-2"> <a class="nav-link" href="#">{% translate "Professional Services" %}</a> </li>
+          <li class="nav-item mx-2"> <a class="nav-link" href="{% url 'home:professionalservice' %}">{% translate "Professional Service" %}</a> </li>
         </ul>
       </div>
     </div>
