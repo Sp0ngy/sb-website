@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+#https://simpleisbetterthancomplex.com/2015/11/26/package-of-the-week-python-decouple.html
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0i&dr5_dk)4j805ar$s-#8wf_grjbz%oen60igvfj3^7cq0h%='
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 #local MySQL Server and local server
 ALLOWED_HOSTS = []
@@ -68,7 +70,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'sb_website.middleware_maintenance.MaintenanceModeMiddleware',
 ]
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
 
 ROOT_URLCONF = 'sb_website.urls'
 
@@ -95,11 +101,11 @@ WSGI_APPLICATION = 'sb_website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sb_database',
-        'USER': 'postgres',
-        'PASSWORD': 'shitshit01',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
             },
     }
 
@@ -171,3 +177,9 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
 # EMAIL_USE_SSL = False
+
+#Maintenance environmental variable
+#os.environ.get(int('MAINTENANCE_MODE', '0'))
+MAINTENANCE_MODE = config('MAINTENANCE_MODE', default=0, cast=int)
+MAINTENANCE_BYPASS_QUERY = config('MAINTENANCE_BYPASS_QUERY')
+
