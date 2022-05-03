@@ -23,6 +23,7 @@
     {% endif %}
 {% endblock %}
 {% include './popup.html' %}
+{% include './modal_consulting.html' %}
 
 {% block content %} {% endblock %}
 
@@ -30,6 +31,7 @@
 </body>
 <!-- Opens popup.html after 2s once per session when DOM is ready //
         Shows popup.html when clicked on id="contactbutton"  -->
+
 <script>
   $(document).ready(function () {
     let popup_shown = sessionStorage.getItem("myModal");
@@ -48,13 +50,20 @@
 
   });
 
-  $("#contactbutton").click(function () {
+  $("#contactbutton1").click(function () {
     $("#myModal").modal('show');
-    console.log('I am back');
+    console.log('Show Modal Contact');
   });
 
+  $("#contactbutton2").click(function () {
+    $("#myModal").modal('show');
+    console.log('Show Modal Contact');
+  });
 
-
+  $("#myModalConsultingButton").click(function () {
+    $("#myModalConsulting").modal('show');
+    console.log('Show Modal Consulting');
+  });
 
 
 </script>
