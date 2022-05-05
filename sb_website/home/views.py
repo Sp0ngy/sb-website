@@ -1,6 +1,7 @@
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 from .models import Partner, InfoBox
+
 from .forms import SubscriptionForm
 from django.contrib import messages
 from django.shortcuts import redirect, render
@@ -8,6 +9,7 @@ from django.utils.translation import gettext as _
 from django.utils.translation import pgettext_lazy
 import json
 from django.core.mail import send_mail
+
 
 
 class CustomTemplateView(TemplateView):
@@ -30,7 +32,10 @@ class HomeInfoListView(ListView):
 
     def get(self, request):
         info_list = InfoBox.objects.all()
-        ctx = {'info_list': info_list, 'page_name': self.page_name}
+        ctx = {
+            'info_list': info_list,
+            'page_name': self.page_name,
+        }
         return render(request, self.template_name, ctx)
 
 
@@ -69,7 +74,7 @@ def MembershipView(request):
 
     # TODO: Add email backend to subscription -> when Subcribe POST, send Mail, add view to cancel subscription for phone or mail
 
-    page_name = 'Membership Program'
+    page_name = 'Health Program'
 
     # if this is a POST request we need to process the form data
     if request.method == 'POST':

@@ -34,12 +34,29 @@
           <!-- Paragraph left -->
           <div class="row my-5">
             <div class="col-md-8">
-              <h2 class="my-3 text-uppercase "><strong>{% translate "Worldwide Specialist Network" %}</strong></h2>
-              <p class="lead">{% translate "With us you will get access to some of the worlds specialists in cancer diagnostic and treatment. We make the newest and most advanced cancer treatment available for you." %}</p>
+              <h2 class="my-3 text-uppercase "><strong>{% translate "GDC Health Program" %}</strong></h2>
+              <!-- TODO: Add Modal to explain process of membership program -->
+              <p class="lead">We have developed a health program for the prevention and early detection of cancer, which is individually tailored to you. We are constantly developing the program and incorporating the latest research and medical findings. Find out more about our <a href="{% url 'home:membership' %}">health program</a> and learn how it works.</p>
             </div>
             <div class="col-md-4 d-flex flex-row justify-content-center">
-              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_network_home.svg' %}" alt="Network">
+              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_knowledge.svg' %}" alt="Network">
             </div>
+          </div>
+
+          <div class="row">
+            {% for article in article_list|slice:"1:3" %}
+            <div class="col-md-4 border-bottom" id="article_category_{{ article.category.pk }}">
+              <a href="{% url 'article:article_detail' article.id %}">
+                <img class="d-block w-100 pb-3 pt-2" src="{{ article.thumbnail.url }}">
+              </a>
+              <h6 class="text-primary text-left text-uppercase mb-1" id="article_category">{{ article.category }}</h6>
+              <a class="link-dark" href="{% url 'article:article_detail' article.id %}">
+                <h3 class="text-left mb-0" href="#">{{ article.title }}</h3>
+              </a>
+              <br>
+              <p class="text-left text-muted blockquote-footer">{{ article.created_at|date:"F o" }}</p>
+            </div>
+            {% endfor %}
           </div>
 
           <!-- Paragraph right -->
