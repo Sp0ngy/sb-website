@@ -10,6 +10,8 @@ from django.utils.translation import pgettext_lazy
 import json
 from django.core.mail import send_mail
 
+from article import models
+
 
 
 class CustomTemplateView(TemplateView):
@@ -35,6 +37,8 @@ class HomeInfoListView(ListView):
         ctx = {
             'info_list': info_list,
             'page_name': self.page_name,
+            'article_category': models.ArticleCategory.objects.order_by('-created_at'),
+            'article_list': models.Article.objects.order_by('-created_at'),
         }
         return render(request, self.template_name, ctx)
 

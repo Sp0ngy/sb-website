@@ -22,8 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
+# production_settings.py uses .env variables
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY', default='unsecure-django-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
@@ -154,6 +156,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = ''
 
 # Static files uploaded by a user during development
 
@@ -183,3 +186,13 @@ EMAIL_USE_TLS = False
 MAINTENANCE_MODE = config('MAINTENANCE_MODE', default=0, cast=int)
 MAINTENANCE_BYPASS_QUERY = config('MAINTENANCE_BYPASS_QUERY')
 
+# Security Settings required by check --deploy
+CSRF_USE_SESSIONS = True
+SESSION_COOKIE_SECURE = True
+
+# TODO: Set to one hour, recheck after deployment
+# https://docs.djangoproject.com/en/4.0/ref/middleware/#http-strict-transport-security
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_SECONDS = 3600
+SECURE_SSL_REDIRECT = True

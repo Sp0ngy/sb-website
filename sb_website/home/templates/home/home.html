@@ -12,7 +12,6 @@
   {% endif %}
 {% endfor %}
 
-  <!-- TODO: add links to the h1 and images -->
   <!-- TODO: change blocktranslate to translate -->
   <div class="py-1">
     <div class="container">
@@ -22,12 +21,14 @@
           <!-- Paragraph right -->
           <div class="row my-5">
             <div class="col-md-4 d-flex flex-row justify-content-center">
-              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_private_service.svg' %}" alt="Private Service">
+              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_private_service.svg' %}" alt="Private Service for Cancer">
             </div>
             <div class="col-md-8 ">
               <h2 class="my-3 text-uppercase text-right"><strong>{% translate "Cancer Consulting <br>& Second Opinion" %}</strong></h2>
               <p class="lead text-right">
-                We offer services related to cancer. With years of experience in cancer treatment and research, we care with our knowledge about your well-being. Find out more about our <a href="{% url 'home:privateservice' %}" >cancer consulting & second opinion service</a> and learn <a href="#" onClick="return false;" id="myModalConsultingButton">how our service works</a>.</p>
+                {% blocktranslate %}We offer services related to cancer. With years of experience in cancer treatment and research, we care with our knowledge about your well-being.
+                Find out more about our{% endblocktranslate %} <a href="{% url 'home:privateservice' %}" >{% translate "cancer consulting & second opinion service" %}</a>{% translate " and learn" %}
+                <a href="#" onClick="return false;" id="myModalConsultingButton">{% translate "how our service works" %}</a>.</p>
             </div>
           </div>
 
@@ -35,17 +36,17 @@
           <div class="row my-5">
             <div class="col-md-8">
               <h2 class="my-3 text-uppercase "><strong>{% translate "GDC Health Program" %}</strong></h2>
-              <!-- TODO: Add Modal to explain process of membership program -->
-              <p class="lead">We have developed a health program for the prevention and early detection of cancer, which is individually tailored to you. We are constantly developing the program and incorporating the latest research and medical findings. Find out more about our <a href="{% url 'home:membership' %}">health program</a> and learn how it works.</p>
+              <p class="lead">{% blocktranslate %}We have developed a health program for the prevention and early detection of cancer, which is individually tailored to you. We are constantly developing the program and incorporating the latest research and medical findings. Find out more about our {% endblocktranslate %}<a href="{% url 'home:membership' %}">{% translate "health program" %}</a>{% translate " and learn how it works." %}</p>
             </div>
             <div class="col-md-4 d-flex flex-row justify-content-center">
               <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_knowledge.svg' %}" alt="Network">
             </div>
           </div>
 
+          <!-- Articles in a row -->
           <div class="row">
-            {% for article in article_list|slice:"1:3" %}
-            <div class="col-md-4 border-bottom" id="article_category_{{ article.category.pk }}">
+            {% for article in article_list|slice:":3" %}
+            <div class="col-md-4 border-bottom border-top" id="article_category_{{ article.category.pk }}">
               <a href="{% url 'article:article_detail' article.id %}">
                 <img class="d-block w-100 pb-3 pt-2" src="{{ article.thumbnail.url }}">
               </a>
@@ -59,23 +60,11 @@
             {% endfor %}
           </div>
 
-          <!-- Paragraph right -->
-          <div class="row my-5">
-            <div class="col-md-4 d-flex flex-row justify-content-center">
-              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_knowledge.svg' %}" alt="Private Service">
-            </div>
-            <div class="col-md-8 ">
-              <h2 class="my-3 text-uppercase text-right"><strong>{% translate "Cancer Knowledge" %}</strong></h2>
-              <p class="lead text-right">
-                {% translate "With us you will get access to some of the worlds specialists in cancer diagnostic and treatment. We make the newest and most advanced cancer treatment available for you." %}</p>
-            </div>
-          </div>
-
           <!-- Paragraph left -->
           <div class="row my-5">
             <div class="col-md-8">
-              <h2 class="my-3 text-uppercase "><strong>{% translate "Strong in cancer research" %}</strong></h2>
-              <p class="lead">{% translate "We combine theory and application - the best way of finding the optimal ways for diagnose and treatment. Look at some of our recent papers and find projects we are recently researching in." %}</p>
+              <h2 class="my-3 text-uppercase "><strong>{% translate "Specialist network and research" %}</strong></h2>
+              <p class="lead">Together with us and our more than 25 <a href="{% url 'home:partner' %}">partners from Europe and Turkey</a> you get access to the latest diagnose and treatment options for cancer. The continuous <a href="{% url 'article:publication_list' %}">involvement in research</a> and work with cancer patients we combine theory and practice and get the best possible results.</p>
             </div>
             <div class="col-md-4 d-flex flex-row justify-content-center">
               <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_research.svg' %}" alt="Research">
@@ -88,9 +77,9 @@
               <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_professional.svg' %}" alt="Professional">
             </div>
             <div class="col-md-8 ">
-              <h2 class="my-3 text-uppercase text-right"><strong>{% translate "Professional services" %}</strong></h2>
+              <h2 class="my-3 text-uppercase text-right"><strong>{% translate "Professional services <br>for business partners" %}</strong></h2>
               <p class="lead text-right">
-                {% translate "We provide professional services as dosimetry service, implementation of software for treatment planning, education of staff and more. Contact us for getting first information and learn how we can improve the quality in your services." %}</p>
+                We provide professional services for hospitals and companies. Dosimetry service for several materials, education of staff within nuclear medicine or as a research partner are some examples of our scope. Read more <a href="{% url 'home:professionalservice' %}">here</a> and learn how we can improve the quality in your services.</p>
             </div>
           </div>
 
@@ -99,7 +88,7 @@
     </div>
   </div>
 
- <!-- TODO: Nice pictures -->
+ <!-- TODO: On Release date; activate Team presentation -->
 <!--
   <div class="py-5 text-center">
     <div class="container">
