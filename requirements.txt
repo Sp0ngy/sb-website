@@ -17,7 +17,6 @@ psycopg2==2.9.3
 python-decouple==3.6
 pyuca==1.2
 PyYAML==6.0
-sb-website==1.0
 sqlparse==0.4.2
 tablib==3.1.0
 tzdata==2021.5
