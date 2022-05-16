@@ -1,0 +1,22 @@
+
+{% load static %}
+{% load i18n %}
+
+<head>
+<title>{% block title %}{{ settings.APP_NAME }}{% endblock %}</title>
+
+{% include './base_header.html' %}
+
+</head>
+<body>
+<div class="py-5" >
+    <div class="container">
+      <div class="row d-flex">
+        <div class="col-md-4 d-flex flex-row justify-content-center"><img src="{% static 'home/view_maintenance/pictogram_maintenance.svg' %}" alt="Maintenance"></div>
+        <div class="col-md-8">
+          <h3 class="display-3">We are currently under maintenance. We'll be back soon. Thanks for your understanding.</h3>
+        </div>
+      </div>
+    </div>
+</div>
+</body>

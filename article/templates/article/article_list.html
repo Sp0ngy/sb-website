@@ -1,0 +1,93 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+<!--  Current language: {{ LANGUAGE_CODE }} -->
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="text-center pt-3">
+    <div class="container">
+      <div class="row border-bottom pt-1 pb-3">
+        <div class="d-flex flex-column justify-content-center align-items-center col-md-2 border-right">
+          <h1 id="article_title" class="text-secondary mb-0 text-uppercase"><strong>{% translate "About" %}</strong></h1>
+        </div>
+
+        {{ article_category_pk_list|json_script:"my_array" }}
+
+        {% for category in article_category|slice:":5" %}
+        <div class="d-flex flex-column justify-content-center align-items-center border-right col-md-2 pl-0 pr-0">
+          <a id="category_{{ category.pk }}" href="#" class="">
+            <h3 class="mb-0 text-body">
+              <strong> {{ category }} </strong>
+            </h3>
+          </a>
+        </div>
+        {% endfor %}
+
+      </div>
+      <div class="row">
+
+      {% for article in article_list|slice:"0:1" %}
+        <div class="col-md-8 border-bottom" id="article_category_{{ article.category.pk }}">
+          <a href="{% url 'article:article_detail' article.id %}">
+            <img class="d-block img-fluid w-100 pb-3 pt-2" src="{{ article.thumbnail.url }}">
+          </a>
+          <h6 class="text-primary text-left text-uppercase mb-1"> {{ article.category }} </h6>
+          <a class="link-dark" href="{% url 'article:article_detail' article.id %}">
+            <h3 class="text-left mb-0"> {{ article.title }} </h3>
+          </a>
+          {% if LANGUAGE_CODE == 'tr' and article.short_description_tr %}
+          <p class="text-left mb-0 lead">{{ article.short_description_tr }}</p>
+          {% else %}
+          <p class="text-left mb-0 lead">{{ article.short_description_en }}</p>
+          {% endif %}
+          <br>
+          <p class="text-left text-muted blockquote-footer">{{ article.created_at|date:"F o" }}</p>
+        </div>
+      {% endfor %}
+
+      {% for article in article_list|slice:"1:2" %}
+        <div class="col-md-4 border-bottom" id="article_category_{{ article.category.pk }}">
+          <a href="{% url 'article:article_detail' article.id %}">
+            <img class="d-block w-100 pb-3 pt-2" src="{{ article.thumbnail.url }}">
+          </a>
+          <h6 class="text-primary text-left text-uppercase mb-1" id="article_category">{{ article.category }}</h6>
+          <a class="link-dark" href="{% url 'article:article_detail' article.id %}">
+            <h3 class="text-left mb-0" href="#">{{ article.title }}</h3>
+          </a>
+          {% if LANGUAGE_CODE == 'tr' and article.short_description_tr %}
+          <p class="text-left mb-0 lead">{{ article.short_description_tr }}</p>
+          {% else %}
+          <p class="text-left mb-0 lead">{{ article.short_description_en }}</p>
+          {% endif %}
+          <br>
+          <p class="text-left text-muted blockquote-footer">{{ article.created_at|date:"F o" }}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+      <div class="row">
+        {% for article in article_list|slice:"2:" %}
+        <div class="col-md-4 border-bottom" id="article_category_{{ article.category.pk }}">
+          <a href="{% url 'article:article_detail' article.id %}">
+            <img class="d-block w-100 pb-3 pt-2" src="{{ article.thumbnail.url }}">
+          </a>
+          <h6 class="text-primary text-left text-uppercase mb-1" id="article_category">{{ article.category }}</h6>
+          <a class="link-dark" href="{% url 'article:article_detail' article.id %}">
+            <h3 class="text-left mb-0" href="#">{{ article.title }}</h3>
+          </a>
+          {% if LANGUAGE_CODE == 'tr' and article.short_description_tr %}
+          <p class="text-left mb-0 lead">{{ article.short_description_tr }}</p>
+          {% else %}
+          <p class="text-left mb-0 lead">{{ article.short_description_en }}</p>
+          {% endif %}
+          <br>
+          <p class="text-left text-muted blockquote-footer">{{ article.created_at|date:"F o" }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,6 +1,0 @@
-id,name,type,city,country,longitude,latitude,image,created_at,updated_at
-10,Uni Berlin,2,Berlin,DE,2.000000000000000,2.000000000000000,home/placeholder.png,2022-01-24 12:28:42,2022-01-24 12:28:42
-9,Universität Ulm,4,Ulm,DE,2.600000000000000,2.400000000000000,home/Augsburg_logo.png,2022-01-17 19:35:14,2022-01-24 12:26:05
-8,Universtät Augsburg,4,Augsburg,DE,2.500000000000000,2.500000000000000,home/Augsburg_logo_3RsmPor.png,2022-01-16 16:15:18,2022-01-24 12:28:09
-7,Uniklinikum Würzburg,5,Würzburg,DE,2.500000000000000,2.500000000000000,home/placeholder_e0krKRm.png,2022-01-16 16:15:18,2022-01-24 12:28:16
-3,Yetitepe University,4,Istanbul,TR,29.152706181600628,40.973133553986280,home/Download.png,2022-01-16 16:15:18,2022-01-24 12:28:22

@@ -1,0 +1,414 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-08 12:29+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\home\forms.py:19
+msgid "First Name*"
+msgstr ""
+
+#: .\home\forms.py:23
+msgid "First Name: Please enter a maximum of 50 letters."
+msgstr ""
+
+#: .\home\forms.py:28
+msgid "Last Name*"
+msgstr ""
+
+#: .\home\forms.py:32
+msgid "Last Name: Please enter a maximum of 50 letters."
+msgstr ""
+
+#: .\home\forms.py:37
+msgid "Email"
+msgstr ""
+
+#: .\home\forms.py:57
+msgid "Phone*"
+msgstr ""
+
+#: .\home\forms.py:61
+msgid "Example: +90 141 4992834"
+msgstr ""
+
+#: .\home\forms.py:66
+msgid "Date of Birth*"
+msgstr ""
+
+#: .\home\templates\home\base_footer.html:11
+msgid "Private"
+msgstr ""
+
+#: .\home\templates\home\base_footer.html:12
+#: .\home\templates\home\base_navbar.html:10
+msgid "Health Program"
+msgstr ""
+
+#: .\home\templates\home\base_footer.html:13
+msgid "Partners"
+msgstr ""
+
+#: .\home\templates\home\base_footer.html:14
+msgid "Professional"
+msgstr ""
+
+#: .\home\templates\home\base_footer.html:19
+msgid "Knowledge"
+msgstr ""
+
+#: .\home\templates\home\base_footer.html:21
+msgid "Blog"
+msgstr ""
+
+#: .\home\templates\home\base_footer.html:22
+#: .\home\templates\home\base_navbar.html:22
+msgid "Publications"
+msgstr ""
+
+#: .\home\templates\home\base_footer.html:27
+msgid "Legal"
+msgstr ""
+
+#: .\home\templates\home\base_footer.html:29
+msgid "Privacy"
+msgstr ""
+
+#. Translators: Modal headline
+#: .\home\templates\home\base_footer.html:30
+#: .\home\templates\home\popup.html:16
+msgid "Contact"
+msgstr ""
+
+#: .\home\templates\home\base_footer.html:34
+msgid "Company Information"
+msgstr ""
+
+#: .\home\templates\home\base_footer.html:39
+msgid "Cyprus"
+msgstr ""
+
+#: .\home\templates\home\base_navbar.html:9
+msgid "Private Service"
+msgstr ""
+
+#: .\home\templates\home\base_navbar.html:11
+msgid "Worldwide Partner"
+msgstr ""
+
+#: .\home\templates\home\base_navbar.html:17
+msgid "Health Knowledge"
+msgstr ""
+
+#: .\home\templates\home\base_navbar.html:20
+msgid "Cancer Blog"
+msgstr ""
+
+#: .\home\templates\home\base_navbar.html:25
+msgid "Professional Service"
+msgstr ""
+
+#: .\home\templates\home\base_navbar.html:55
+msgid "Change"
+msgstr ""
+
+#: .\home\templates\home\home.html:10
+#, python-format
+msgid "INFO: %(info)s"
+msgstr ""
+
+#: .\home\templates\home\home.html:20
+msgid "Our portfolio in cancer"
+msgstr ""
+
+#: .\home\templates\home\home.html:27
+msgid "Cancer Consulting <br>& Second Opinion"
+msgstr "Krebsberatung & Zweitmeinung"
+
+#: .\home\templates\home\home.html:29
+msgid ""
+"We offer services related to cancer. With years of experience in cancer "
+"treatment and research, we care with our knowledge about your well-being.\n"
+"                Find out more about our"
+msgstr "Wir bieten Dienstleistungen rund um das Thema Krebs an. Mit jahrelanger "
+"Erfahrung in der Krebsbehandlung und -forschung kümmern wir uns mit "
+"unserem Wissen um Ihr Wohlbefinden. Erfahren Sie mehr über unsere Dienstleistung"
+
+#: .\home\templates\home\home.html:30
+msgid "cancer consulting & second opinion service"
+msgstr "Krebsberatung & Zweitmeinungen"
+
+#: .\home\templates\home\home.html:30
+msgid " and learn"
+msgstr " und"
+
+#: .\home\templates\home\home.html:31
+msgid "how our service works"
+msgstr "wie unsere Dienstleistung funktioniert"
+
+#: .\home\templates\home\home.html:38
+msgid "GDC Health Program"
+msgstr ""
+
+#: .\home\templates\home\home.html:66
+msgid "Specialist network and research"
+msgstr ""
+
+#: .\home\templates\home\home.html:80
+msgid "Professional services <br>for business partners"
+msgstr ""
+
+#: .\home\templates\home\home.html:97
+msgid "Meet&nbsp;the team"
+msgstr ""
+
+#: .\home\templates\home\membership.html:14
+msgid ""
+"Be an early Bird: Register now for a place in our Health & Cancer Prevention "
+"Program and get a special discount!"
+msgstr ""
+
+#: .\home\templates\home\membership.html:30
+msgid "Herewith I agree to the"
+msgstr ""
+
+#: .\home\templates\home\membership.html:31
+msgid "General Terms & Conditions"
+msgstr ""
+
+#: .\home\templates\home\membership.html:32
+msgid "and"
+msgstr ""
+
+#: .\home\templates\home\membership.html:33
+msgid "Data Protection"
+msgstr ""
+
+#: .\home\templates\home\membership.html:42
+msgid "Prevention is better than cure!"
+msgstr ""
+
+#: .\home\templates\home\membership.html:44
+msgid ""
+"Our health program aims at the prevention and early detection of cancer and "
+"tumors in order to minimize the risk of a serious disease. Together with our "
+"partners, we would like to offer you a overall preventive care package of "
+"the highest quality."
+msgstr ""
+
+#: .\home\templates\home\membership.html:49
+#: .\home\templates\home\private_service.html:40
+msgid "Source:"
+msgstr ""
+
+#. Translators: Modal headline
+#: .\home\templates\home\modal_consulting.html:15
+msgid "How it works:"
+msgstr ""
+
+#: .\home\templates\home\partner.html:11
+msgid "Why does it make sense for us to accompany you on your journey?"
+msgstr ""
+
+#: .\home\templates\home\partner.html:12
+msgid ""
+"Because we are a <strong>strong partner</strong> with a <strong>strong "
+"network</strong> of specialists."
+msgstr ""
+
+#: .\home\templates\home\partner.html:17
+msgid "See where our Partners are located:"
+msgstr ""
+
+#: .\home\templates\home\partner.html:31
+msgid "Partners &amp; Cooperations"
+msgstr ""
+
+#: .\home\templates\home\popup.html:30
+msgid "Phone and Whatsapp contact:"
+msgstr ""
+
+#: .\home\templates\home\popup.html:49
+msgid "Email contact:"
+msgstr ""
+
+#: .\home\templates\home\popup.html:63
+msgid "We speak Turkish, English and German."
+msgstr ""
+
+#: .\home\templates\home\private_service.html:11
+msgid "What treatment options are there and which is the right one for me?"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:12
+msgid "This question is on the minds of everyone who is diagnosed with cancer."
+msgstr ""
+
+#: .\home\templates\home\private_service.html:22
+#, python-format
+msgid "83%% of people diagnosed with cancer"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:22
+msgid " want a second opinion "
+msgstr ""
+
+#: .\home\templates\home\private_service.html:22
+msgid "from a specialist"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:52
+#, python-format
+msgid "52%% of patients feel"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:52
+msgid " more confident "
+msgstr ""
+
+#: .\home\templates\home\private_service.html:52
+msgid "after getting a second opinion"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:62
+#, python-format
+msgid "45%% of patients"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:62
+msgid " change their decision "
+msgstr ""
+
+#: .\home\templates\home\private_service.html:62
+msgid "of the treatment path after a second opinion"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:71
+msgid "We accompany and advise you with your cancer diagnose"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:74
+msgid ""
+"Depending on the type and stage of cancer, the question of the right "
+"treatment is not easy to answer. Our consulting expert"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:84
+msgid "Benefit from our worldwide network of cancer specialists"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:97
+msgid "Press me!"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:108
+msgid "Get your personal consulting on cancer disease of any kind."
+msgstr ""
+
+#: .\home\templates\home\private_service.html:110
+msgid ""
+"Professional and experienced guidance of a cancer patient through all stages "
+"of diagnosis & treatment"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:111
+msgid "Explanation of technical terms, diagnostic procedures and treatments"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:112
+msgid "Psychological support in coping with the disease"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:113
+msgid "Application of the latest findings in cancer research"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:125
+msgid ""
+"Selection from network of research institution, university hospitals and "
+"practicing specialists"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:126
+msgid "Reviewing and recommending action of cancer treatment & diagnosis"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:127
+msgid "Optimization of the chances of cancer cure"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:128
+msgid "Assurance and safeguarding of a therapy decision"
+msgstr ""
+
+#: .\home\templates\home\private_service.html:129
+msgid "via phone or video conference, onsite-meeting"
+msgstr ""
+
+#: .\home\templates\home\professional_service.html:27
+msgid ""
+"Dosimetry is indispensable for treatments with radioactive material. The "
+"individual      calculation of the patient's body values greatly increases "
+"the quality, safety and success of the treatment."
+msgstr ""
+
+#: .\home\templates\home\professional_service.html:41
+msgid ""
+"The field of nuclear medicine is still young. We support the training of "
+"specialists."
+msgstr ""
+
+#: .\home\templates\home\professional_service.html:43
+msgid "Training of personnel in diagnostic imaging for dosimetry"
+msgstr ""
+
+#: .\home\templates\home\professional_service.html:44
+msgid "Training of personnel in the correct handling of radioactive material "
+msgstr ""
+
+#: .\home\templates\home\professional_service.html:45
+msgid "Introduction to regulations & best practice of nuclear medicine"
+msgstr ""
+
+#: .\home\templates\home\professional_service.html:55
+msgid ""
+"Cooperations are the key to success. We bring our knowledge and network to "
+"your project."
+msgstr ""
+
+#: .\home\templates\home\professional_service.html:57
+msgid "Partner in projects related to nuclear medicine in industry & research"
+msgstr ""
+
+#: .\home\templates\home\professional_service.html:58
+msgid "Support for the introduction of nuclear treatments in hospitals"
+msgstr ""
+
+#: .\home\templates\home\professional_service.html:59
+msgid ""
+"Creation of diagnostic & treatment routines for nuclear medicine fitting for "
+"your needs"
+msgstr ""
+
+#: .\home\templates\home\professional_service.html:69
+msgid "Contact us!"
+msgstr ""
+
+#: .\home\views.py:33
+msgctxt "override default"
+msgid "Home"
+msgstr ""
