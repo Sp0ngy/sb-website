@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
+import django_heroku
+
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 #https://simpleisbetterthancomplex.com/2015/11/26/package-of-the-week-python-decouple.html
@@ -196,3 +198,6 @@ SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_SECONDS = 3600
 SECURE_SSL_REDIRECT = True
+
+# has to be at the bottom
+django_heroku.settings(locals())
