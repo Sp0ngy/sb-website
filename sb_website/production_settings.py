@@ -31,7 +31,7 @@ SECRET_KEY = config('SECRET_KEY', default='unsecure-django-secret-key')
 DEBUG = config('DEBUG', cast=bool)
 
 #local MySQL Server and local server
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['germandiagnosticcenter.herokuapp.com']
 
 # App Name // Websites Name
 APP_NAME='SB_Website'
@@ -156,7 +156,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = 'staticfiles/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Static files uploaded by a user during development
 
