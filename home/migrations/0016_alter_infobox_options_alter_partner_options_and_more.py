@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='subscription',
             name='date_of_birth',
-            field=models.DateField(blank=True, default=2022),
+            field=models.DateField(blank=True),
             preserve_default=False,
         ),
         migrations.AddField(
