@@ -200,6 +200,7 @@ SECURE_HSTS_SECONDS = 3600
 SECURE_SSL_REDIRECT = True
 
 # from https://stackoverflow.com/questions/51466192/server-error-500-django-deployment-on-heroku/56456466#56456466
+# Debugging in heroku live
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -238,6 +239,9 @@ LOGGING = {
         },
     }
 }
+
+#TODO: Remove if fixed
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # has to be at the bottom
 django_heroku.settings(locals())
