@@ -42,12 +42,12 @@ APP_NAME='SB_Website'
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
     'home.apps.HomeConfig',
@@ -248,7 +248,7 @@ LOGGING = {
     }
 }
 
-#TODO: Recheck if necessary
+#TODO: Enables errors in logs for heroku
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # has to be at the bottom
