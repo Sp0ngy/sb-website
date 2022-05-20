@@ -202,7 +202,7 @@ SECURE_SSL_REDIRECT = True
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # from https://stackoverflow.com/questions/51466192/server-error-500-django-deployment-on-heroku/56456466#56456466
@@ -246,7 +246,7 @@ LOGGING = {
     }
 }
 
-#TODO: Remove if fixed
+#TODO: Recheck if necessary
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # has to be at the bottom
