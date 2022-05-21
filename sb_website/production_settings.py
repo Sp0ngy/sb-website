@@ -162,6 +162,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+#absolute path to static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'home/static/home/files'),
+]
 
 # Static files uploaded by a user during development
 
@@ -204,7 +208,7 @@ SECURE_SSL_REDIRECT = True
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # from https://stackoverflow.com/questions/51466192/server-error-500-django-deployment-on-heroku/56456466#56456466

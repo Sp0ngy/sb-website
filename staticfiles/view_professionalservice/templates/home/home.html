@@ -1,0 +1,115 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+{% for info in info_list %}
+  {% if info.is_active == True %}
+    <div class="alert alert-secondary text-center" role="alert">
+      <strong>{% blocktranslate with info=info.info_text %}INFO: {{ info }}{% endblocktranslate %}</strong>
+    </div>
+  {% endif %}
+{% endfor %}
+
+  <!-- TODO: change blocktranslate to translate -->
+  <div class="py-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="text-center mb-4 text-capitalize">{% translate "Our portfolio in cancer" %}</h2>
+          <!-- Paragraph right -->
+          <div class="row my-5">
+            <div class="col-md-4 d-flex flex-row justify-content-center">
+              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_private_service.svg' %}" alt="Private Service for Cancer">
+            </div>
+            <div class="col-md-8 ">
+              <h2 class="my-3 text-uppercase text-right"><strong>{% translate "Cancer Consulting <br>& Second Opinion" %}</strong></h2>
+              <p class="lead text-right">
+                {% blocktranslate %}We offer services related to cancer. With years of experience in cancer treatment and research, we care with our knowledge about your well-being.
+                Find out more about our{% endblocktranslate %} <a href="{% url 'home:privateservice' %}" >{% translate "cancer consulting & second opinion service" %}</a>{% translate " and learn" %}
+                <a href="#" onClick="return false;" id="myModalConsultingButton">{% translate "how our service works" %}</a>.</p>
+            </div>
+          </div>
+
+          <!-- Paragraph left -->
+          <div class="row my-5">
+            <div class="col-md-8">
+              <h2 class="my-3 text-uppercase "><strong>{% translate "GDC Health Program" %}</strong></h2>
+              <p class="lead">{% blocktranslate %}We have developed a health program for the prevention and early detection of cancer, which is individually tailored to you. We are constantly developing the program and incorporating the latest research and medical findings. Find out more about our {% endblocktranslate %}<a href="{% url 'home:membership' %}">{% translate "health program" %}</a>{% translate " and learn how it works." %}</p>
+            </div>
+            <div class="col-md-4 d-flex flex-row justify-content-center">
+              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_knowledge.svg' %}" alt="Network">
+            </div>
+          </div>
+
+          <!-- Articles in a row -->
+          <div class="row">
+            {% for article in article_list|slice:":3" %}
+            <div class="col-md-4 border-bottom border-top" id="article_category_{{ article.category.pk }}">
+              <a href="{% url 'article:article_detail' article.id %}">
+                <img class="d-block w-100 pb-3 pt-2" src="{{ article.thumbnail.url }}">
+              </a>
+              <h6 class="text-primary text-left text-uppercase mb-1" id="article_category">{{ article.category }}</h6>
+              <a class="link-dark" href="{% url 'article:article_detail' article.id %}">
+                <h3 class="text-left mb-0" href="#">{{ article.title }}</h3>
+              </a>
+              <br>
+              <p class="text-left text-muted blockquote-footer">{{ article.created_at|date:"F o" }}</p>
+            </div>
+            {% endfor %}
+          </div>
+
+          <!-- Paragraph left -->
+          <div class="row my-5">
+            <div class="col-md-8">
+              <h2 class="my-3 text-uppercase "><strong>{% translate "Specialist network and research" %}</strong></h2>
+              <p class="lead">Together with us and our more than 25 <a href="{% url 'home:partner' %}">partners from Europe and Turkey</a> you get access to the latest diagnose and treatment options for cancer. The continuous <a href="{% url 'article:publication_list' %}">involvement in research</a> and work with cancer patients we combine theory and practice and get the best possible results.</p>
+            </div>
+            <div class="col-md-4 d-flex flex-row justify-content-center">
+              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_research.svg' %}" alt="Research">
+            </div>
+          </div>
+
+          <!-- Paragraph right -->
+          <div class="row my-5">
+            <div class="col-md-4 d-flex flex-row justify-content-center">
+              <img class="d-flex flex-column justify-content-center" src="{% static 'home/view_home/pictogram_professional.svg' %}" alt="Professional">
+            </div>
+            <div class="col-md-8 ">
+              <h2 class="my-3 text-uppercase text-right"><strong>{% translate "Professional services <br>for business partners" %}</strong></h2>
+              <p class="lead text-right">
+                We provide professional services for hospitals and companies. Dosimetry service for several materials, education of staff within nuclear medicine or as a research partner are some examples of our scope. Read more <a href="{% url 'home:professionalservice' %}">here</a> and learn how we can improve the quality in your services.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- TODO: On Release date; activate Team presentation -->
+<!--
+  <div class="py-5 text-center">
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto col-md-12">
+          <h1 class="mb-3">{% translate "Meet&nbsp;the team" %}</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-6 p-4"> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="https://static.pingendo.com/img-placeholder-1.svg" width="100" alt="Card image cap">
+          <h4> <b>Dr. rer. nat. Seval Beykan</b></h4>
+          <p class="text-dark">Founder &amp; Head of Servce</p>
+        </div>
+        <div class="col-lg-6 col-6 p-4"> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="https://static.pingendo.com/img-placeholder-2.svg" width="100" alt="Card image cap">
+          <h4> <b>M. Eng. Nico Schürrle</b></h4>
+          <p class="text-dark">Co-founder &amp; CEO</p>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+
+
+{% endblock %}

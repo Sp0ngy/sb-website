@@ -26,11 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0i&dr5_dk)4j805ar$s-#8wf_grjbz%oen60igvfj3^7cq0h%='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 #local MySQL Server and local server
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 # App Name // Websites Name
 APP_NAME='SB_Website'
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
     'home.apps.HomeConfig',
@@ -64,6 +65,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -157,6 +159,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+#absolute path to static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'home/static/home/files'),
+]
+
 # Static files uploaded by a user during development
 
 # MEDIA_URL is the url to access the files in MEDIA_ROOT
@@ -189,3 +196,10 @@ MAINTENANCE_BYPASS_QUERY = 'Nicoiscool'
 CSRF_USE_SESSIONS = True
 SESSION_COOKIE_SECURE = True
 
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+SECURE_SSL_REDIRECT=False
+SESSION_COOKIE_SECURE=False
+CSRF_COOKIE_SECURE=False

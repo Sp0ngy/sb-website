@@ -1,0 +1,49 @@
+{% load i18n %}
+{% load static %}
+
+<div class="py-3" >
+    <div class="container border-top">
+      <div class="row">
+        <!-- Column Service -->
+        <div class="col-lg-2 col-6 p-3">
+          <h5> <b>Services</b> </h5>
+          <ul class="list-unstyled">
+            <li> <a href="{% url 'home:privateservice' %}">{% translate "Private" %}</a> </li>
+            <li> <a href="{% url 'home:membership' %}">{% translate "Health Program" %}</a> </li>
+            <li> <a href="{% url 'home:partner' %}">{% translate "Partners" %}</a> </li>
+            <li> <a href="{% url 'home:professionalservice' %}">{% translate "Professional" %}</a> </li>
+          </ul>
+        </div>
+        <!-- Column Knowledge -->
+        <div class="col-lg-2 col-6 p-3">
+          <h5> <b>{% translate "Knowledge" %}</b> </h5>
+          <ul class="list-unstyled">
+            <li> <a href="{% url 'article:article_list' %}">{% translate "Blog" %}</a> </li>
+            <li> <a href="{% url 'article:publication_list' %}">{% translate "Publications" %}</a> </li>
+          </ul>
+        </div>
+        <!-- Column Legal -->
+        <div class="col-lg-2 col-6 p-3">
+          <h5> <b>{% translate "Legal" %}</b> </h5>
+          <ul class="list-unstyled">
+            <li> <a target="_blank" href="{% static 'home\files\DATA_PROTECTION.pdf' %}">{% translate "Privacy" %}</a> </li>
+            <li> <a href="#" onClick="return false;" id="contactbutton3">{% translate "Contact" %}</a> </li>
+          </ul>
+        </div>
+        <div class="col-lg-6 col-md-4 p-3">
+          <h5 class="text-end"> <b>{% translate "Company Information" %}</b> </h5>
+          <ul class="list-unstyled text-end">
+            <li class="text-end">German Diagnostic Center - Curie Consulting</li>
+            <li>mail@germandiagnostic.com - mail@curie-consulting.com</li>
+            <li>+49 1514 7692193</li>
+            <li>{% translate "Cyprus" %}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="mb-0 mt-2">© 2022 SB & NS. All rights reserved</p>
+        </div>
+      </div>
+    </div>
+  </div>
