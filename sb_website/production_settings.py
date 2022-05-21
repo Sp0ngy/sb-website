@@ -162,11 +162,6 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-#absolute path to static files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'home/static/home/files'),
-]
-
 # Static files uploaded by a user during development
 
 # MEDIA_URL is the url to access the files in MEDIA_ROOT

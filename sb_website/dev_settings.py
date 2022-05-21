@@ -15,6 +15,8 @@ from django.utils.translation import gettext_lazy as _
 #https://simpleisbetterthancomplex.com/2015/11/26/package-of-the-week-python-decouple.html
 from decouple import config
 
+#TODO: ADD base_settings.py and import
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -161,7 +163,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #absolute path to static files
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'home/static/home/files'),
+    os.path.join(BASE_DIR, 'home/static'),
 ]
 
 # Static files uploaded by a user during development
@@ -198,7 +200,8 @@ SESSION_COOKIE_SECURE = True
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
 SECURE_SSL_REDIRECT=False
 SESSION_COOKIE_SECURE=False

@@ -30,4 +30,6 @@ urlpatterns = [
     path('partner/', views.PartnerListView.as_view(), name='partner'),
     path('maintenance/', views.MaintenanceView.as_view(), name='maintenance'),
     path('i18n/', include('django.conf.urls.i18n')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
