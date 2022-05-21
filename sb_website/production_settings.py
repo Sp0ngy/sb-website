@@ -159,9 +159,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (
+    str(BASE_DIR.joinpath('static')),
+    str(BASE_DIR.joinpath('static/home')),
+    str(BASE_DIR.joinpath('static/home/files')),
+    str(BASE_DIR.joinpath('static/home/modal_consulting')),
+    str(BASE_DIR.joinpath('static/home/modal_contact')),
+    str(BASE_DIR.joinpath('static/home/view_home')),
+    str(BASE_DIR.joinpath('static/home/view_maintenance')),
+    str(BASE_DIR.joinpath('static/home/view_membership')),
+    str(BASE_DIR.joinpath('static/home/view_privateservice')),
+    str(BASE_DIR.joinpath('static/home/view_professionalservice')),
+)
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Static files uploaded by a user during development
 
 # MEDIA_URL is the url to access the files in MEDIA_ROOT
@@ -200,11 +213,6 @@ SECURE_HSTS_PRELOAD = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_SECONDS = 3600
 SECURE_SSL_REDIRECT = True
-
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 # from https://stackoverflow.com/questions/51466192/server-error-500-django-deployment-on-heroku/56456466#56456466
 # Debugging in heroku live

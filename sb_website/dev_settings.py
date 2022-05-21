@@ -67,8 +67,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -158,15 +158,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (
+    str(BASE_DIR.joinpath('static')),
+    str(BASE_DIR.joinpath('static/home')),
+    str(BASE_DIR.joinpath('static/home/files')),
+    str(BASE_DIR.joinpath('static/home/modal_consulting')),
+    str(BASE_DIR.joinpath('static/home/modal_contact')),
+    str(BASE_DIR.joinpath('static/home/view_home')),
+    str(BASE_DIR.joinpath('static/home/view_maintenance')),
+    str(BASE_DIR.joinpath('static/home/view_membership')),
+    str(BASE_DIR.joinpath('static/home/view_privateservice')),
+    str(BASE_DIR.joinpath('static/home/view_professionalservice')),
+)
 
-#absolute path to static files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'home/static'),
-]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
-# Static files uploaded by a user during development
+
 
 # MEDIA_URL is the url to access the files in MEDIA_ROOT
 MEDIA_URL = 'media/'
@@ -198,10 +208,7 @@ MAINTENANCE_BYPASS_QUERY = 'Nicoiscool'
 CSRF_USE_SESSIONS = True
 SESSION_COOKIE_SECURE = True
 
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+
 
 SECURE_SSL_REDIRECT=False
 SESSION_COOKIE_SECURE=False
