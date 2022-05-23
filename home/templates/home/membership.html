@@ -28,9 +28,9 @@
               <div class="col-md-6"> {{ s_form.email }} </div>
             <div class="form-check"> {{ s_form.terms_accepted }}
               <small class="form-check-label text-muted">{% translate "Herewith I agree to the" %}
-                <a target="_blank" href="{% static 'B2C GENERAL TERMS AND CONDITIONS FOR CONSULTANCY SERVICES.pdf' %}">{% translate "General Terms & Conditions" %}</a>
+                <a target="_blank" href="{% static 'home/files/B2C GENERAL TERMS AND CONDITIONS FOR CONSULTANCY SERVICES.pdf' %}">{% translate "General Terms & Conditions" %}</a>
                 {% translate "and" %}
-                <a target="_blank" href="{% static 'DATA_PROTECTION.pdf' %}">{% translate "Data Protection" %}</a>
+                <a target="_blank" href="{% static 'home/files/DATA_PROTECTION.pdf' %}">{% translate "Data Protection" %}</a>
               </small>
             </div>
             <div class="p-2 form-group"> <input class="btn btn-primary" type="submit" value="Submit"> </div>
@@ -45,7 +45,7 @@
                 </p>
           </div>
           <div class="col-md-6 mt-2">
-            <img class="img-fluid d-block mb-3 ratio ratio-1x1" src="{% static 'home/view_membership/health_program.png' %}" >
+            <img class="img-fluid d-block mb-3 ratio ratio-1x1" src="{% static 'home/view_membership/health_program.svg' %}" >
             <p class="text-muted blockquote-footer">{% translate "Source:" %} German Diagnostic Center</p>
           </div>
         </div>
