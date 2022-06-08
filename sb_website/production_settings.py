@@ -255,7 +255,7 @@ LOGGING = {
     }
 }
 
-#TODO: Enables errors in logs for heroku
+# Enables errors in logs for heroku
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # has to be at the bottom

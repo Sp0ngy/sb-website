@@ -2,7 +2,6 @@ from django.contrib import admin
 from .models import Article, ArticleTemplate, ArticleCategory, Paragraph, Publication
 from import_export.admin import ImportExportMixin
 
-#TODO: create admin docs, see https://docs.djangoproject.com/en/4.0/ref/contrib/admin/admindocs/
 class ArticleAdmin(ImportExportMixin, admin.ModelAdmin):
     model = Article
 

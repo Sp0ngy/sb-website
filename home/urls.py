@@ -28,6 +28,7 @@ urlpatterns = [
     path('professionalservice/', views.ProfessionalServiceView.as_view(), name='professionalservice'),
     path('membership/', views.MembershipView, name='membership'),
     path('partner/', views.PartnerListView.as_view(), name='partner'),
+    path('information/', views.InformationView.as_view(), name='information'),
     path('maintenance/', views.MaintenanceView.as_view(), name='maintenance'),
     path('i18n/', include('django.conf.urls.i18n')),
 ]

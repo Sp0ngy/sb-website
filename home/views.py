@@ -54,6 +54,9 @@ class ProfessionalServiceView(CustomTemplateView):
 class MaintenanceView(TemplateView):
     template_name = 'home/maintenance.html'
 
+class InformationView(TemplateView):
+    template_name = 'home/information.html'
+
 # Errors displayed as message because bootstrap is-invalid is not working
 # Loop through each key and get error message
 def get_form_messages_as_str(form, request, messagetype='warning'):
@@ -114,6 +117,9 @@ class PartnerListView(ListView):
         partner_list = Partner.objects.all()
         ctx = {'partner_list': partner_list, 'page_name': self.page_name}
         return render(request, self.template_name, ctx)
+
+
+# TODO: view "Company Information" with Impressum, links for downloadable GT&C, Data Protection, ..., in Englisch, German, Turkish
 
 
 

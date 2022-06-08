@@ -15,8 +15,6 @@ from django.utils.translation import gettext_lazy as _
 #https://simpleisbetterthancomplex.com/2015/11/26/package-of-the-week-python-decouple.html
 from decouple import config
 
-#TODO: ADD base_settings.py and import
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
