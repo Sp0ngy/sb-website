@@ -27,19 +27,19 @@
         {% endfor %}
 
       </div>
+      <!-- Row with 1 big and 1 medium tile -->
       <div class="row">
-
       {% for article in article_list|slice:"0:1" %}
         <div class="col-md-8 border-bottom" id="article_category_{{ article.category.pk }}">
           <a href="{% url 'article:article_detail' article.id %}">
             <img class="d-block img-fluid w-100 pb-3 pt-2" src="{{ article.thumbnail.url }}">
           </a>
           <h6 class="text-primary text-left text-uppercase mb-1"> {{ article.category }} </h6>
-          <a class="link-dark" href="{% url 'article:article_detail' article.id %}">
+            <a class="link-dark" href="{% url 'article:article_detail' article.id %}">
             <h3 class="text-left mb-0"> {{ article.title }} </h3>
           </a>
           {% if LANGUAGE_CODE == 'tr' and article.short_description_tr %}
-          <p class="text-left mb-0 lead">{{ article.short_description_tr }}</p>
+          <p class="text-left mb-0">{{ article.short_description_tr }}</p>
           {% else %}
           <p class="text-left mb-0 lead">{{ article.short_description_en }}</p>
           {% endif %}
@@ -47,7 +47,6 @@
           <p class="text-left text-muted blockquote-footer">{{ article.created_at|date:"F o" }}</p>
         </div>
       {% endfor %}
-
       {% for article in article_list|slice:"1:2" %}
         <div class="col-md-4 border-bottom" id="article_category_{{ article.category.pk }}">
           <a href="{% url 'article:article_detail' article.id %}">
@@ -65,9 +64,9 @@
           <br>
           <p class="text-left text-muted blockquote-footer">{{ article.created_at|date:"F o" }}</p>
         </div>
-      </div>
       {% endfor %}
-
+      </div>
+      <!-- Row with 3 medium tiles -->
       <div class="row">
         {% for article in article_list|slice:"2:" %}
         <div class="col-md-4 border-bottom" id="article_category_{{ article.category.pk }}">

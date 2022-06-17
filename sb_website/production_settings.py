@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     # Scripting API
     # https://django-extensions.readthedocs.io/en/latest/shell_plus.html
     'django_extensions',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -175,11 +176,11 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# Static files uploaded by a user during development
+
 
 # MEDIA_URL is the url to access the files in MEDIA_ROOT
 MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -257,6 +258,16 @@ LOGGING = {
 
 # Enables errors in logs for heroku
 DEBUG_PROPAGATE_EXCEPTIONS = True
+
+#S3 vars
+#https://devcenter.heroku.com/articles/s3-upload-python
+AWS_ACCESS_KEY_ID=config("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY=config("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME=config("AWS_STORAGE_BUCKET_NAME")
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # has to be at the bottom
 django_heroku.settings(locals())

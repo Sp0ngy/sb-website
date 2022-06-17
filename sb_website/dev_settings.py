@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0i&dr5_dk)4j805ar$s-#8wf_grjbz%oen60igvfj3^7cq0h%='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 #local MySQL Server and local server
@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    #'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
     'home.apps.HomeConfig',
@@ -61,12 +60,12 @@ INSTALLED_APPS = [
     # Scripting API
     # https://django-extensions.readthedocs.io/en/latest/shell_plus.html
     'django_extensions',
+    'storages',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -171,14 +170,8 @@ STATICFILES_DIRS = (
     str(BASE_DIR.joinpath('static/home/view_professionalservice')),
 )
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-#STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
-
-
-
-# MEDIA_URL is the url to access the files in MEDIA_ROOT
 MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -211,3 +204,19 @@ SESSION_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT=False
 SESSION_COOKIE_SECURE=False
 CSRF_COOKIE_SECURE=False
+
+#S3 vars
+#https://devcenter.heroku.com/articles/s3-upload-python
+USE_S3 = config('USE_S3', cast=bool)
+
+# TODO: Make aws policies correctly
+if USE_S3 == True:
+    #S3 settings
+    AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
+    AWS_STORAGE_BUCKET_NAME = config("AWS_STORAGE_BUCKET_NAME")
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_DEFAULT_ACL = None
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+

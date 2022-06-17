@@ -10,7 +10,7 @@ class Article(models.Model):
     short_description_tr = models.TextField(max_length=350, blank=True, verbose_name='Short Description TR')
     main_description_en = models.TextField(max_length=10000, verbose_name='Description EN')
     main_description_tr = models.TextField(max_length=10000, blank=True, verbose_name='Description TR')
-    thumbnail = models.ImageField(upload_to='article/', default='article/placeholder.png')
+    thumbnail = models.ImageField(upload_to='article/%Y/%m/%d', default='article/placeholder.png')
 
     primary_image = models.ImageField(upload_to='article/%Y/%m/%d', default=None, blank=True, null=True)
     primary_video = models.FileField(upload_to='article/%Y/%m/%d', default=None, blank=True, null=True, help_text='Required format: MP4')
